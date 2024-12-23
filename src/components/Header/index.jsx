@@ -10,45 +10,51 @@ function Header() {
   const { toggleSidebar, isSidebarCollapsed } = useContext(SidebarContext);
 
   return (
-    <div className="bg-none text-slate-950 p-4 flex items-center">
+    <div className="bg-none text-slate-950 p-4 px-0 flex items-center">
       {/* Logo and Brand Name */}
-      <div className="flex items-center space-x-4 w-56 max-w-xs ">
+      <div className="flex items-center space-x-2 w-56 max-w-xs">
         <button className="flex items-center justify-center w-12 h-12 rounded-md bg-white text-slate-900 hover:text-slate-900 transition duration-200">
           <MdAddShoppingCart className="text-2xl font-black text-orange-400" />
         </button>
-        <h1 className="text-lg font-bold text-slate-900 hover:text-orange-400 transition duration-200">
+        <h1 className="text-lg sm:text-sm md:text-l lg:text-xl font-bold text-slate-900 hover:text-orange-400 transition duration-200 whitespace-nowrap">
           SHOPIX +
         </h1>
       </div>
+
       {/* Search and Sidebar Toggle */}
-      <div className="flex items-center justify-start flex-grow ml-3">
+      <div className="flex items-center justify-start flex-grow ml-3 ">
         <button
           onClick={toggleSidebar}
           className="flex items-center justify-center w-10 h-10 p-1 bg-gray-200 rounded-full shadow-lg text-orange-500 transition duration-200"
         >
           {isSidebarCollapsed ? <MdMenu size={25} /> : <MdClose size={25} />}
         </button>
-        <SearchInput className="w-72 mx-5" />
+        <SearchInput className="w-72 mx-5 hidden sm:flex" />
       </div>
       {/* Notification and Profile Section */}
       <div className="relative flex items-center mx-4  cursor-pointer">
         <LanguageSwitcher />
-        <button className="flex items-center justify-center w-10 h-10 mx-4 rounded-full bg-gray-200 shadow-lg text-orange-400 transition duration-200">
+        <button className="flex items-center px-3 justify-center w-10 h-10 mx-2 rounded-full bg-gray-200 shadow-lg text-orange-400 transition duration-200">
           <FaBell size={25} />
         </button>
 
         <img
           src=""
           alt="Profile"
-          className="w-12 h-12 rounded-full bg-white shadow-lg"
+          className="w-12 h-12 rounded-full bg-white shadow-lg hidden sm:flex"
         />
-        <div className="flex flex-col ml-2">
+        <div className="flex flex-col ml-2 hidden sm:flex">
           <span className="text-slate-900">Profile Name</span>
           <span className="text-slate-900">@email.com</span>
         </div>
         {/* Arrow Icon */}
         <div className="group">
-          <FaChevronDown className="w-4 h-4 mt-7 text-slate-900 ml-1  group-hover:text-orange-400 transition" />
+          <FaChevronDown className="w-4 h-4 mt-7 text-slate-900 ml-1  group-hover:text-orange-400 transition hidden sm:flex " />
+          <img
+            src=""
+            alt="Profile"
+            className="w-12 h-12 rounded-full bg-white shadow-lg block sm:hidden"
+          />
           {/* Dropdown Menu */}
           <div className="absolute right-0 top-12 w-48 bg-slate-800 text-white rounded-md shadow-lg z-10 hidden group-hover:block  duration-200 ease-in-out">
             <ul className="py-2">

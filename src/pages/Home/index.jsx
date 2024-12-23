@@ -1,5 +1,7 @@
 import React from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { SidebarContext } from "../../context/SidebarContext";
 
 import { SideBar, Header } from "../../components";
 
@@ -11,6 +13,7 @@ import {
 } from "../../pages";
 
 const Home = () => {
+  const { isSidebarCollapsed } = useContext(SidebarContext);
   return (
     <div className="min-h-screen flex flex-col Home-Wrapper">
       <header className="z-50">
@@ -19,11 +22,15 @@ const Home = () => {
 
       <div className="flex">
         <div
-          className="sideBar-wrapper overflow-y-auto bg-white"
+          className={`sideBar-wrapper overflow-y-auto bg-white fixed top-0 left-0 bottom-0 ${
+            isSidebarCollapsed ? "-translate-x-full" : "translate-x-0"
+          } sm:translate-x-0 sm:relative`} // Fixed position for mobile, relative for larger screens
           style={{
-            height: "40rem",
+            height: "100vh", // Full height on mobile
             paddingTop: "4.5rem",
             overflowX: "hidden",
+            zIndex: 40, // Ensure it slides over content
+            transition: "transform 0.3s ease", // Smooth sliding transition
           }}
         >
           <SideBar />

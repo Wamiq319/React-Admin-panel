@@ -54,8 +54,13 @@ const DashboardPage = () => {
     <div className="Dashboard-Wrapper bg-none ">
       <PageHeader
         title={words["Admin"]}
-        breadcrumbs={`${words["Home"]} ~ ${words["Admin"]} ~ ${words["Dashboard"]}`}
+        breadcrumbs={[
+          { label: words["Home"], link: "/home/dashboard" },
+          { label: words["Admin"], link: "/home/dashboard" },
+          { label: words["Dashboard"] },
+        ]}
       />
+
       {/* PRODUCT CARDS */}
       <div className="flex justify-between mt-4 w-full">
         <Card
