@@ -2,6 +2,12 @@
 
 This project is a **fully responsive React Admin Panel** designed for managing eCommerce stores. Built with modern web technologies like **React** and **Tailwind CSS**, it offers a seamless and intuitive UI for managing products, orders, users, analytics, and more. 
 
+##  **Demo**
+
+You can view the live demo of the app at the following link:
+
+**[Demo - Home Dashboard]([https://wamiq319.github.io/home/dashboard](https://wamiq319.github.io/React-Admin-panel/))**
+
 ## Features
 
 - **Fully Responsive**: Optimized for all screen sizes, including desktops, tablets, and mobile devices.
@@ -70,23 +76,13 @@ This project uses Tailwind CSS for styling. You can configure Tailwind settings 
 
 To deploy the admin panel:
 
-1. Build the production bundle:
+ Build the production bundle:
    ```bash
    npm run build
    ```
-
-2. Deploy the `build/` directory to your preferred hosting provider (e.g., Netlify, Vercel, Firebase Hosting).
+Deploy the `build/` directory to your preferred hosting provider (e.g., Netlify, Vercel, Firebase Hosting).
 
 ---
-
-## 2. **Demo**
-
-You can view the live demo of the app at the following link:
-
-**[Demo - Home Dashboard]([https://wamiq319.github.io/home/dashboard](https://wamiq319.github.io/React-Admin-panel/))**
-
-
-
 
 ## Technologies Used
 
