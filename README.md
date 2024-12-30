@@ -83,7 +83,7 @@ To deploy the admin panel:
 
 You can view the live demo of the app at the following link:
 
-**[Demo - Home Dashboard](https://wamiq319.github.io/home/dashboard)**
+**[Demo - Home Dashboard]([https://wamiq319.github.io/home/dashboard](https://wamiq319.github.io/React-Admin-panel/))**
 
 
 
