@@ -10,7 +10,9 @@ import {
   Legend,
 } from "chart.js";
 
+// ============================
 // Register the required Chart.js components
+// ============================
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -21,7 +23,9 @@ ChartJS.register(
 );
 
 const DashboardCard = ({ Title, INFO }) => {
+  // ============================
   // Destructure Title prop for easy access to its parts
+  // ============================
   const {
     icon: TitleIcon,
     LABEL: TitleLabel,
@@ -29,7 +33,9 @@ const DashboardCard = ({ Title, INFO }) => {
     color: TitleColor,
   } = Title;
 
+  // ============================
   // Function to extract numeric value from a string
+  // ============================
   const extractNumericValue = (value) => {
     if (typeof value === "string") {
       const numericValue = value.replace(/[^0-9.-]+/g, ""); // Remove non-numeric characters
@@ -38,7 +44,9 @@ const DashboardCard = ({ Title, INFO }) => {
     return value; // Return value as is if it's already a number
   };
 
+  // ============================
   // Color mapping: dynamically associate colors with specific names
+  // ============================
   const colorMap = {
     red: "rgba(239, 68, 68, 1)",
     green: "rgba(34, 197 ,94, 1)",
@@ -48,7 +56,9 @@ const DashboardCard = ({ Title, INFO }) => {
     default: "rgba(249 ,115 ,22, 0.6)", // Fallback color
   };
 
+  // ============================
   // Prepare data for the small Bar Graph on the title section
+  // ============================
   const barChartData = {
     labels: INFO.map((item) => item.LABEL), // Labels for each INFO item
     datasets: [
@@ -64,7 +74,9 @@ const DashboardCard = ({ Title, INFO }) => {
 
   return (
     <div className="bg-white w-[22rem] my-1 sm:m-0   p-2 rounded-lg shadow-lg relative">
-      {/* Title Section */}
+      {/* ============================
+        Title Section
+      ============================ */}
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           {TitleIcon && (
@@ -87,7 +99,9 @@ const DashboardCard = ({ Title, INFO }) => {
           </div>
         </div>
 
-        {/* Small Bar Chart in the right corner */}
+        {/* ============================
+          Small Bar Chart in the right corner
+        ============================ */}
         <div className="w-24 h-20 hidden md:block">
           <Bar
             data={barChartData}
@@ -95,20 +109,20 @@ const DashboardCard = ({ Title, INFO }) => {
               responsive: true,
               maintainAspectRatio: true,
               plugins: {
-                legend: { display: false }, // Hide the legend
+                legend: { display: false },
                 tooltip: {
-                  enabled: true, // Enable tooltip on hover
-                  mode: "index", // Tooltip appears for bars on hover
+                  enabled: true,
+                  mode: "index",
                 },
               },
               scales: {
                 x: {
-                  ticks: { display: false }, // Hide X axis labels
-                  grid: { display: false }, // Remove grid lines on X axis
+                  ticks: { display: false },
+                  grid: { display: false },
                 },
                 y: {
-                  ticks: { display: false }, // Hide Y axis labels
-                  grid: { display: false }, // Remove grid lines on Y axis
+                  ticks: { display: false },
+                  grid: { display: false },
                 },
               },
             }}
@@ -116,10 +130,14 @@ const DashboardCard = ({ Title, INFO }) => {
         </div>
       </div>
 
-      {/* Separator Line */}
+      {/* ============================
+        Separator Line
+      ============================ */}
       <div className="m-2 border-t border-gray-300" />
 
-      {/* INFO Section */}
+      {/* ============================
+        INFO Section
+      ============================ */}
       <div className={`grid grid-cols-3 gap-4`}>
         {INFO.map((item, index) => {
           // Destructure INFO item for easy access
@@ -135,11 +153,15 @@ const DashboardCard = ({ Title, INFO }) => {
               key={index}
               className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md"
             >
-              {/* Icon and Value */}
+              {/* ============================
+                Icon and Value
+              ============================ */}
               <div className={`text-2xl font-bold text-${ItemColor}-500`}>
                 <ItemIcon className=" mr-2 hidden md:block" /> {ItemValue}
               </div>
-              {/* Label Text */}
+              {/* ============================
+                Label Text
+              ============================ */}
               <div className="text-sm text-gray-600 text-nowrap">
                 {ItemLabel}
               </div>

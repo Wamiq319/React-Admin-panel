@@ -125,32 +125,47 @@ const DashboardPage = () => {
       Color: "green",
     },
   ];
-  const revenueChartData = {
-    legend1: "Expenses",
-    legend2: "Revenue",
+
+  const revenueChartData2 = {
     xlabels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
-    ylabel: { start: 10, step: 10 },
-    data1: [20, 30, 50, 80, 23, 60, 75, 55],
-    data2: [10, 25, 40, 70, 50, 40, 65, 45],
+    header: { title: "Revenue", subTitle: "Sales:", value: "$4800" },
+    datasets: [
+      {
+        label: "Profit",
+        data: [15, 22, 40, 65, 50, 70, 85, 72],
+        color: "blue",
+      },
+      {
+        label: "Revenue",
+        data: [30, 45, 60, 80, 75, 85, 95, 90],
+        color: "yellow",
+      },
+    ],
   };
+
   const customerData = {
     xlabels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+    header: {
+      title: "Customer Insights",
+      subTitle: "Active Customers:",
+      value: "300", // Updated to reflect total active or unique customers across the entire period.
+    },
     datasets: [
       {
         label: "New Customers",
-        data: [150, 200, 180, 220],
+        data: [120, 150, 130, 160], // New customers in each week
         color: "blue",
         type: "bar",
       },
       {
         label: "Returning Customers",
-        data: [100, 120, 130, 150],
+        data: [90, 110, 135, 170], // Returning customers in each week
         color: "orange",
         type: "bar",
       },
       {
-        label: "sales",
-        data: [250, 350, 310, 380],
+        label: "Total Sales",
+        data: [210, 320, 330, 420], // Sales growth based on both new and returning customers
         color: "green",
         type: "line",
       },
@@ -180,7 +195,7 @@ const DashboardPage = () => {
           <DataBarChart data={customerData} />
         </div>
         <div className=" md:w-[38%]  md:m-0 mt-2">
-          <DataLineChart data={revenueChartData} />
+          <DataLineChart data={revenueChartData2} />
         </div>
       </div>
 

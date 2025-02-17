@@ -97,9 +97,7 @@ const ProductUploadPage = () => {
       setImages(newImages);
     }
   };
-  const handleAddVariantType = (e) => {
-    
-  };
+  const handleAddVariantType = (e) => {};
   const handleremoveVariantType = (e) => {};
 
   const handleSubmit = (e) => {

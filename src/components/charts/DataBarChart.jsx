@@ -11,8 +11,11 @@ import {
   Title,
   PointElement,
 } from "chart.js";
+import { InputField } from "../FormComponents";
 
+// ===========================
 // Register necessary components for Chart.js
+// ===========================
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -24,7 +27,9 @@ ChartJS.register(
   Title
 );
 
-// Color Map (can be extended as needed)
+// ===========================
+// Color Map for dataset styling
+// ===========================
 const colorMap = {
   red: "rgba(239, 68, 68, 0.6)",
   green: "rgba(34, 197 ,94, 0.6)",
@@ -34,10 +39,18 @@ const colorMap = {
   default: "rgba(249 ,115 ,22, 0.6)", // Fallback color
 };
 
+// ===========================
+// DataBarChart Component
+// ===========================
 const DataBarChart = ({ data }) => {
-  // Generate datasets dynamically without hardcoding any keys
+  // Options for different time periods (e.g., Daily, Weekly, etc.)
+  const Options = ["Daily", "Weekly", "Monthly", "Yearly"];
+
+  // ===========================
+  // Dynamically generate datasets for the chart
+  // ===========================
   const datasets = data.datasets.map((dataset) => ({
-    type: dataset.type || "bar", // Default to bar, but allow line as well
+    type: dataset.type || "bar",
     label: dataset.label,
     data: dataset.data,
     backgroundColor:
@@ -52,13 +65,17 @@ const DataBarChart = ({ data }) => {
       dataset.type === "line" ? undefined : 180 / dataset.data.length,
   }));
 
-  // Chart Data
+  // ===========================
+  // Chart Data Structure
+  // ===========================
   const chartData = {
     labels: data.xlabels,
     datasets: datasets,
   };
 
+  // ===========================
   // Chart Options
+  // ===========================
   const options = {
     responsive: true,
     plugins: {
@@ -67,7 +84,7 @@ const DataBarChart = ({ data }) => {
       },
       tooltip: {
         callbacks: {
-          label: (context) => `${context.dataset.label}: ${context.raw}`,
+          label: (context) => `${context.dataset.label}: ${context.raw}`, // Custom label format
         },
         backgroundColor: "rgba(0, 0, 0, 0.8)",
         titleColor: "#fff",
@@ -94,7 +111,7 @@ const DataBarChart = ({ data }) => {
         categoryPercentage: 0.4,
       },
       y: {
-        beginAtZero: true,
+        beginAtZero: false,
         grid: {
           color: "#E5E7EB",
         },
@@ -111,13 +128,29 @@ const DataBarChart = ({ data }) => {
 
   return (
     <div className="bg-white rounded-lg shadow-lg p-4 h-full my-1 flex flex-col justify-end">
-      {/* Chart */}
+      {/* ===========================
+        Header Section
+      =========================== */}
+      <div className=" mb-3 flex justify-between ">
+        <h2 className="mx-1 text-xl font-bold">{data.header.title}</h2>
+        {/* Header subtitle section */}
+        <div className=" flex">
+          <h2 className="mx-1 font-bold">{data.header.subTitle}</h2>
+          <h2 className="text-orange-500 font-bold">{data.header.value}</h2>
+        </div>
+      </div>
+
+      {/* ===========================
+        Chart Section
+      =========================== */}
       <div className="flex justify-between">
         <div className="md:w-3/4 w-full">
           <Bar data={chartData} options={options} />
         </div>
 
-        {/* Labels on the right */}
+        {/* ===========================
+          Labels on the right
+        =========================== */}
         <div className="sm:flex flex-col justify-start items-center space-y-2 w-1/4 hidden">
           {data.datasets.map((dataset, index) => (
             <div
