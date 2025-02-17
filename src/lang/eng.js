@@ -9,6 +9,10 @@ export const eng = {
   Attributes: "Attributes",
   "Best Selling Product": "Best Selling Product",
   Admin: "Admin",
+  Limited: "Limited",
+  Pending: "Pending",
+  Cancelled: "Cancelled",
+  New: "New",
 
   // +++++++++++++++++++++++++++
   //       PRODUCT CLASSIFICATION
@@ -100,7 +104,6 @@ export const eng = {
   //       PRODUCTS
   // +++++++++++++++++++++++++++
   Products: "Products",
-  "All Products": "All Products",
   "Product Management": "Product Management",
   "Products List": "Products List",
   "Product Upload": "Product Upload",
@@ -115,7 +118,4 @@ export const eng = {
   // +++++++++++++++++++++++++++
   Orders: "Orders",
   "All Orders": "All Orders",
-  "Pending Orders": "Pending Orders",
-  "Cancelled Orders": "Cancelled Orders",
-  "New Orders": "New Orders",
 };

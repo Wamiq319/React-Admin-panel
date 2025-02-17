@@ -268,7 +268,11 @@ const AttributePage = () => {
 
       <PageHeader
         title={words["Add Product Attributes"]}
-        breadcrumbs={`${words["Home"]} ~ ${words["Products"]} ~ ${words["Attributes"]}`}
+        breadcrumbs={[
+          { label: words["Home"], link: "/home/dashboard" },
+          { label: words["Admin"], link: "/home/dashboard" },
+          { label: words["Dashboard"] },
+        ]}
       />
 
       <div className="mt-4 flex justify-start">

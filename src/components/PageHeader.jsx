@@ -3,12 +3,12 @@ import { Link } from "react-router-dom"; // Assuming we're using React Router fo
 
 const PageHeader = ({ title, breadcrumbs }) => {
   return (
-    <div className="bg-white p-4 w-full flex flex-col sm:flex-row justify-between rounded-lg shadow-lg">
+    <div className="bg-white p-4 w-full flex sm:flex-row justify-between items-center rounded-lg shadow-lg">
       {/* Title */}
       <h6 className="font-bold text-xl text-slate-800">{title}</h6>
 
       {/* Breadcrumbs */}
-      <div className="flex flex-wrap space-x-2 mt-2 sm:mt-0">
+      <div className="flex space-x-2 mt-2 sm:mt-0">
         {breadcrumbs.map((breadcrumb, index) => (
           <React.Fragment key={index}>
             {/* If it's not the last breadcrumb, we will add a separator */}
@@ -20,7 +20,7 @@ const PageHeader = ({ title, breadcrumbs }) => {
                 >
                   {breadcrumb.label}
                 </Link>
-                <span className="text-gray-500">/</span>
+                <span className="text-orange-500 text-xl">~</span>
               </>
             ) : (
               // Last breadcrumb, no link, just the label

@@ -97,6 +97,10 @@ const ProductUploadPage = () => {
       setImages(newImages);
     }
   };
+  const handleAddVariantType = (e) => {
+    
+  };
+  const handleremoveVariantType = (e) => {};
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -112,7 +116,11 @@ const ProductUploadPage = () => {
       {/* Page Header */}
       <PageHeader
         title={words["Product Upload"]}
-        breadcrumbs={`${words["Home"]}~${words["Products"]}~${words["Product Upload"]}`}
+        breadcrumbs={[
+          { label: words["Home"], link: "/home/dashboard" },
+          { label: words["Admin"], link: "/home/dashboard" },
+          { label: words["Dashboard"] },
+        ]}
       />
 
       {/* Product Upload Form */}
@@ -135,7 +143,6 @@ const ProductUploadPage = () => {
               name="description"
               type="richtext"
               value={formData.description}
-              onChange={handleInputChange}
             />
 
             {/* Price and Stock */}
@@ -221,6 +228,7 @@ const ProductUploadPage = () => {
                 text="Add"
                 icon={<FaPlus />}
                 className="text-sm h-[43px] w-40 mt-auto"
+                onClick={handleAddVariantType}
               />
             </div>
             <div className="flex flex-wrap m-1">
@@ -235,9 +243,9 @@ const ProductUploadPage = () => {
                       className="bg-orange-500 m-1 text-white p-1 mx-1 rounded-md flex relative"
                     >
                       <p className="px-4">{variant}</p>
-                      <button className="text-white rounded-full shadow-md absolute top-0 right-0 p-1 w-5 h-5 flex items-center justify-center">
+                      {/* <button className="text-white rounded-full shadow-md absolute top-0 right-0 p-1 w-5 h-5 flex items-center justify-center">
                         x
-                      </button>
+                      </button> */}
                     </span>
                   )
                 )}

@@ -18,6 +18,7 @@ const notificationSlice = createSlice({
       state.visible = true;
       state.duration = action.payload.duration || 2000;
       state.className = action.payload.className || "";
+      state.type = action.payload.type || "info";
       state.autoHide =
         action.payload.autoHide !== undefined ? action.payload.autoHide : true;
     },

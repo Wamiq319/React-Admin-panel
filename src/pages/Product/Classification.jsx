@@ -149,12 +149,18 @@ const ClassificationPage = () => {
       }));
     }
   };
-  const triggerNotification = (message, duration = 2000, className = "") => {
+  const triggerNotification = (
+    message,
+    duration = 2000,
+    className = "",
+    type = "success"
+  ) => {
     dispatch(
       showNotification({
         message,
         duration,
         className,
+        type,
       })
     );
   };
@@ -354,7 +360,11 @@ const ClassificationPage = () => {
       )}
       <PageHeader
         title={words["Classify the Product"]}
-        breadcrumbs={`${words["Home"]} ~ ${words["Products"]} ~ ${words["Classification"]}`}
+        breadcrumbs={[
+          { label: words["Home"], link: "/home/dashboard" },
+          { label: words["Admin"], link: "/home/dashboard" },
+          { label: words["Dashboard"] },
+        ]}
       />
 
       <div className="mt-4 flex justify-start">

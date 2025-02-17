@@ -5,34 +5,22 @@ import { useSelector } from "react-redux";
 import DataTable from "../../components/DataTable";
 import Card from "../../components/StatusCards";
 import PageHeader from "../../components/PageHeader";
+import DashboardCard from "../../components/DashboardCard";
+import DataLineChart from "../../components/charts/DataLineChart";
+import DataBarChart from "../../components/charts/DataBarChart";
+
 // Icons from react-icons
 import {
-  AiFillEye,
-  AiOutlineEdit,
-  AiFillDelete,
-  AiFillAppstore,
-} from "react-icons/ai";
+  FaBoxes,
+  FaTag,
+  FaCheckCircle,
+  FaBan,
+  FaClock,
+  FaExclamationTriangle,
+  FaMoneyBillWaveAlt,
+} from "react-icons/fa";
 
-import {
-  GiCardboardBox,
-  GiShoppingCart,
-  GiCardboardBoxClosed,
-} from "react-icons/gi";
-
-import {
-  MdDoNotDisturbOn,
-  MdWarning,
-  MdFiberNew,
-  MdOutlineDoNotDisturbAlt,
-} from "react-icons/md";
-
-import { FaTags, FaParachuteBox } from "react-icons/fa";
-
-import { HiDocumentText } from "react-icons/hi";
-
-import { BsFillCheckCircleFill, BsFillBox2Fill } from "react-icons/bs";
-
-import { RiRefundFill, RiBox1Line } from "react-icons/ri";
+// DATA IMPORTS MOCK DATABASE
 import { getProductSummary } from "../../Mock-DataBase/product";
 
 const DashboardPage = () => {
@@ -48,10 +36,129 @@ const DashboardPage = () => {
     { key: "productDescription", label: "Description" },
   ];
 
-  const options = [{ title: "View Details", route: "/view-details" }, ,];
+  // Storing The for Dahhboard Cards and charts
+  const dashboardcardData = [
+    {
+      Title: {
+        icon: FaBoxes,
+        LABEL: words["Products"],
+        Value: 120,
+        color: "orange",
+      },
+      INFO: [
+        { icon: FaBan, LABEL: words["Out of Stock"], Value: 20, color: "red" },
+        {
+          icon: FaExclamationTriangle,
+          LABEL: words["Limited"],
+          Value: 80,
+          color: "blue",
+        },
+        { icon: FaTag, LABEL: words["On Sale"], Value: 20, color: "yellow" },
+      ],
+    },
+
+    {
+      Title: {
+        icon: FaBoxes,
+        LABEL: words["Orders"],
+        Value: 150,
+        color: "orange",
+      },
+      INFO: [
+        {
+          icon: FaClock,
+          LABEL: words["Pending"],
+          Value: 20,
+          color: "green",
+        },
+        {
+          icon: FaBan,
+          LABEL: words["Cancelled"],
+          Value: 80,
+          color: "red",
+        },
+        {
+          icon: FaTag,
+          LABEL: words["New"],
+          Value: 20,
+          color: "blue",
+        },
+      ],
+    },
+    {
+      Title: {
+        icon: FaMoneyBillWaveAlt,
+        LABEL: "Sales",
+        Value: "$5000", // Total sales revenue
+        color: "orange",
+      },
+      INFO: [
+        { icon: FaTag, LABEL: "Total Revenue", Value: "$3000", color: "blue" }, // Total revenue from sales
+        {
+          icon: FaCheckCircle,
+          LABEL: "Profit",
+          Value: "$1200",
+          color: "green",
+        }, // Total profit
+        {
+          icon: FaTag,
+          LABEL: "Discounts Given",
+          Value: "$800",
+          color: "orange",
+        },
+      ],
+    },
+  ];
+  const statusCardData = [
+    {
+      title: "Card 1",
+      progress: 50,
+      info: "Some info about card ",
+      Icon: FaBoxes, // Just as an example, you can replace it with any icon component
+      Color: "blue",
+    },
+    {
+      title: "Card 2",
+      progress: 75,
+      info: "Some info about card ",
+      Icon: FaBoxes,
+      Color: "green",
+    },
+  ];
+  const revenueChartData = {
+    legend1: "Expenses",
+    legend2: "Revenue",
+    xlabels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
+    ylabel: { start: 10, step: 10 },
+    data1: [20, 30, 50, 80, 23, 60, 75, 55],
+    data2: [10, 25, 40, 70, 50, 40, 65, 45],
+  };
+  const customerData = {
+    xlabels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+    datasets: [
+      {
+        label: "New Customers",
+        data: [150, 200, 180, 220],
+        color: "blue",
+        type: "bar",
+      },
+      {
+        label: "Returning Customers",
+        data: [100, 120, 130, 150],
+        color: "orange",
+        type: "bar",
+      },
+      {
+        label: "sales",
+        data: [250, 350, 310, 380],
+        color: "green",
+        type: "line",
+      },
+    ],
+  };
 
   return (
-    <div className="Dashboard-Wrapper bg-none ">
+    <div className="Dashboard-Wrapper bg-none">
       <PageHeader
         title={words["Admin"]}
         breadcrumbs={[
@@ -60,83 +167,47 @@ const DashboardPage = () => {
           { label: words["Dashboard"] },
         ]}
       />
-
       {/* PRODUCT CARDS */}
-      <div className="flex justify-between mt-4 w-full">
-        <Card
-          title={words["All Products"]}
-          progress={100}
-          info={100 + " " + words["Products"]}
-          Icon={AiFillAppstore}
-          Color="orange"
-          options={options}
-        />
-        <Card
-          title={words["Out of Stock"]}
-          progress={70}
-          info={70 + " " + words["Products"]}
-          Icon={GiCardboardBox}
-          Color="red"
-          options={options}
-        />
-        <Card
-          title={words["Limited Stock"]}
-          progress={70}
-          info={70 + " " + words["Products"]}
-          Icon={MdWarning}
-          Color="blue"
-          options={options}
-        />
-        <Card
-          title={words["On Sale"]}
-          progress={60}
-          info={60 + " " + words["Products"]}
-          Icon={FaTags}
-          Color="yellow"
-          options={options}
-        />
+      <div className="flex flex-wrap mt-4  justify-between sm:flex-col md:flex-row">
+        {dashboardcardData.map((card, index) => (
+          <DashboardCard key={index} Title={card.Title} INFO={card.INFO} />
+        ))}
       </div>
-      {/* ORDERS CARDS  */}
-      <div className="flex justify-between mt-4 w-full">
-        <Card
-          title={words["All Orders"]}
-          progress={100}
-          info={100 + " " + words["Orders"]}
-          Icon={HiDocumentText}
-          Color="orange"
-          options={options}
-        />
-        <Card
-          title={words["Pending Orders"]}
-          progress={30}
-          info={30 + " " + words["Orders"]}
-          Icon={FaParachuteBox}
-          Color="green"
-          options={options}
-        />
-        <Card
-          title={words["Cancelled Orders"]}
-          progress={70}
-          info={70 + " " + words["Orders"]}
-          Icon={RiRefundFill}
-          Color="red"
-          options={options}
-        />
-        <Card
-          title={words["New Orders"]}
-          progress={60}
-          info={60 + " " + words["Orders"]}
-          Icon={RiBox1Line}
-          Color="blue"
-          options={options}
-        />
+
+      {/* Datachart */}
+      <div className="flex flex-wrap mt-4 w-full justify-between  sm:flex-col md:flex-row">
+        <div className="md:w-[60%]   ">
+          <DataBarChart data={customerData} />
+        </div>
+        <div className=" md:w-[38%]  md:m-0 mt-2">
+          <DataLineChart data={revenueChartData} />
+        </div>
       </div>
-      {/* TABLE  */}
-      <div className="bg-white mt-4 w-full   p-3  rounded-lg shadow-lg">
-        <h4 className="text-orange-500 font-bold text-lg mb-4">
-          {words["Best Selling Product"]}
-        </h4>
-        <DataTable tableData={tableData} tableHeader={productColumns} />
+
+      {/* Bottom  */}
+      <div className="flex flex-wrap">
+        <div className="w-full lg:w-2/3 xl:w-3/4 p-3">
+          <div className="bg-white mt-4 w-full p-3 rounded-lg shadow-lg">
+            <h4 className="text-orange-500 font-bold text-lg mb-4">
+              {words["Best Selling Product"]}
+            </h4>
+            <DataTable tableData={tableData} tableHeader={productColumns} />
+          </div>
+        </div>
+        <div className="w-full lg:w-1/3 xl:w-1/4 p-3">
+          <div className="flex  flex-wrap ">
+            {statusCardData.map((card, index) => (
+              <Card
+                title={card.title}
+                progress={card.progress}
+                info={card.info}
+                Icon={card.Icon}
+                Color={card.Color}
+                options={card.options}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

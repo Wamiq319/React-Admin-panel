@@ -63,7 +63,7 @@ const DashboardCard = ({ Title, INFO }) => {
   };
 
   return (
-    <div className="bg-white  sm:m-0 my-1  p-2 rounded-lg shadow-lg relative">
+    <div className="bg-white w-[22rem] my-1 sm:m-0   p-2 rounded-lg shadow-lg relative">
       {/* Title Section */}
       <div className="flex items-center justify-between">
         <div className="flex items-center">
