@@ -150,14 +150,13 @@ const StoreOverViewPage = () => {
   /** ------------------------------
    * 📌 TABLE DATA FOR ORDERS
    * ------------------------------ */
-  const tableHeader = [
-    { key: "id", label: words["ID Order"] },
-    { key: "name", label: words["Name"] },
-    { key: "product", label: words["Product"] },
-    { key: "date", label: words["Date"] },
-    { key: "price", label: words["Price"] },
-  ];
+  const statusStyles = {
+    Complete: "bg-green-200 text-green-800",
+    Pending: "bg-yellow-200 text-yellow-800",
+    Canceled: "bg-red-200 text-red-800",
+  };
 
+  // Preprocessed Table Data
   const tableData = [
     {
       id: "#567898",
@@ -165,7 +164,7 @@ const StoreOverViewPage = () => {
       product: "Notebook",
       date: "18-09-2018",
       price: "$120.00",
-      status: words["Complete"],
+      status: "Complete",
     },
     {
       id: "#675878",
@@ -173,7 +172,7 @@ const StoreOverViewPage = () => {
       product: "Handphone",
       date: "23-09-2018",
       price: "$108.00",
-      status: words["Pending"],
+      status: "Pending",
     },
     {
       id: "#547876",
@@ -181,7 +180,7 @@ const StoreOverViewPage = () => {
       product: "Laptop",
       date: "26-09-2018",
       price: "$118.00",
-      status: words["Complete"],
+      status: "Complete",
     },
     {
       id: "#657899",
@@ -189,7 +188,7 @@ const StoreOverViewPage = () => {
       product: "Headset",
       date: "27-09-2018",
       price: "$100.00",
-      status: words["Canceled"],
+      status: "Canceled",
     },
     {
       id: "#675644",
@@ -197,9 +196,20 @@ const StoreOverViewPage = () => {
       product: "Tablet",
       date: "30-09-2018",
       price: "$111.00",
-      status: words["Complete"],
+      status: "Complete",
     },
-  ];
+  ].map((order) => ({
+    ...order,
+    status: (
+      <span
+        className={`px-3 py-1 rounded-full text-xs font-semibold ${
+          statusStyles[order.status]
+        }`}
+      >
+        {words[order.status] || order.status}
+      </span>
+    ),
+  }));
 
   /** ------------------------------
    * 📌 STATUS CARD DATA
@@ -244,6 +254,23 @@ const StoreOverViewPage = () => {
       Color: "red",
     },
   ];
+  const renderStatus = (status) => {
+    const statusStyles = {
+      [words["Complete"]]: "bg-green-200 text-green-800",
+      [words["Pending"]]: "bg-yellow-200 text-yellow-800",
+      [words["Canceled"]]: "bg-red-200 text-red-800",
+    };
+
+    return (
+      <span
+        className={`px-3 py-1 rounded-full text-xs font-semibold ${
+          statusStyles[status] || "bg-gray-300"
+        }`}
+      >
+        {status}
+      </span>
+    );
+  };
 
   return (
     <div className="Dashboard-Wrapper bg-none">
@@ -280,11 +307,19 @@ const StoreOverViewPage = () => {
             {words["Orders"]}
           </h4>
           <DataTable
+            tableHeader={[
+              { key: "id", label: words["ID Order"] || "ID Order" },
+              { key: "name", label: words["Name"] || "Name" },
+              { key: "product", label: words["Product"] || "Product" },
+              { key: "date", label: words["Date"] || "Date" },
+              { key: "price", label: words["Price"] || "Price" },
+              { key: "status", label: words["Status"] || "Status" }, // Preprocessed
+            ]}
             tableData={tableData}
-            tableHeader={tableHeader}
             rowsPerPage={5}
           />
         </div>
+
         <div className="w-full lg:w-[25%] flex flex-col">
           {statusCardData.map((card, index) => (
             <Card key={index} {...card} />

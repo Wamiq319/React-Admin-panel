@@ -17,6 +17,9 @@ export const eng = {
   Cancelled: "Cancelled",
   New: "New",
   "Total Stores": "Total Stores",
+  Admin: "Admin",
+  Complete: "Complete",
+  "All Orders": "All Orders",
 
   // +++++++++++++++++++++++++++
   //       PRODUCT CLASSIFICATION

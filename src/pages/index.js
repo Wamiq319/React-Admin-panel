@@ -8,6 +8,7 @@ import Home from "../pages/Home";
 import AddUserPage from "./User/AddUser";
 import UserRolesPage from "./User/UserRole";
 import UserListPage from "./User/UserList";
+import OrderListPage from "./Order";
 
 export {
   StoreOverViewPage,
@@ -18,5 +19,6 @@ export {
   AddUserPage,
   UserListPage,
   ProductAttributePage,
+  OrderListPage,
   Home,
 };

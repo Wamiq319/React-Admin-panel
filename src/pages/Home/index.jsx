@@ -14,6 +14,7 @@ import {
   AddUserPage,
   UserRolesPage,
   UserListPage,
+  OrderListPage,
 } from "../../pages";
 
 const Home = () => {
@@ -69,6 +70,7 @@ const Home = () => {
             <Route path="/user-roles" element={<UserRolesPage />} />
             <Route path="/user-list" element={<UserListPage />} />
             <Route path="/products" element={<ProductListPage />} />
+            <Route path="/all-orders" element={<OrderListPage />} />
           </Routes>
         </div>
       </div>

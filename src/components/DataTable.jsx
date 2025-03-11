@@ -5,15 +5,6 @@ import { IoSwapVertical } from "react-icons/io5";
 /* ---------------------------------------------
    Status Colors for Badge Styling
 --------------------------------------------- */
-const statusColors = {
-  Complete: "bg-green-200 text-green-800",
-  Pending: "bg-yellow-200 text-yellow-800",
-  Canceled: "bg-red-200 text-red-800",
-  "Out of Stock": "bg-red-200 text-red-800",
-  Active: "bg-green-200 text-green-800",
-  Available: "bg-green-200 text-green-800",
-  Inactive: "bg-red-200 text-red-800",
-};
 
 const DataTable = ({
   hasStatusColumn = false,
@@ -220,24 +211,6 @@ const DataTable = ({
                         </option>
                       ))}
                     </select>
-                  </td>
-                )}
-
-                {/* Status Column */}
-                {hasStatusColumn && (
-                  <td className="p-3 text-sm sm:text-base">
-                    {row.status ? (
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                          statusColors[row.status] ||
-                          "bg-gray-200 text-gray-800"
-                        }`}
-                      >
-                        {row.status}
-                      </span>
-                    ) : (
-                      <span className="text-gray-500">N/A</span>
-                    )}
                   </td>
                 )}
 

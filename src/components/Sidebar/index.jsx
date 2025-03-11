@@ -44,17 +44,7 @@ const SideBar = () => {
       name: words["Orders"],
       link: "/home/all-orders",
       icon: FaBox,
-      subMenu: [
-        { name: words["All Orders"], link: "/home/all-orders" },
-        { name: words["New Orders"], link: "/home/new-orders" },
-        { name: words["Pending Orders"], link: "/home/pending-orders" },
-        { name: words["Completed Orders"], link: "/home/completed-orders" },
-        {
-          name: words["Returns/Refunds"],
-          link: "/home/returns-refunds",
-          icon: FaUndo,
-        },
-      ],
+      subMenu: [{ name: words["All Orders"], link: "/home/all-orders" }],
     },
     {
       name: words["Users"], // Main Menu for User Management

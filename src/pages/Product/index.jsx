@@ -1,10 +1,15 @@
-// React & Redux
 import React from "react";
 import { useSelector } from "react-redux";
 
 // Icons
-import { FaStar, FaStarHalfAlt, FaRegStar, FaEye } from "react-icons/fa";
-import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
+import {
+  FaStar,
+  FaStarHalfAlt,
+  FaRegStar,
+  FaEye,
+  FaPencilAlt,
+  FaTrashAlt,
+} from "react-icons/fa";
 
 // Components
 import { DataTable, PageHeader, Button, SearchInput } from "../../components";
@@ -46,24 +51,14 @@ const ProductListPage = () => {
     );
   };
 
-  const handleActions = (row) => {
-    return (
-      <div className="flex space-x-2">
-        <button className="text-white bg-green-400 hover:bg-green-500 p-2 rounded-md">
-          <FaPencilAlt />
-        </button>
-        <button className="text-red-400 hover:text-red-500 border-red-400 hover:border-red-500 rounded-md p-2 border-2">
-          <FaTrashAlt />
-        </button>
-        <button className="text-blue-400 hover:text-blue-500 border-blue-400 hover:border-blue-500 rounded-md p-2 border-2">
-          <FaEye />
-        </button>
-      </div>
-    );
+  // Status Box Styling
+  const statusStyles = {
+    Available: "bg-green-200 text-green-800",
+    "Out of Stock": "bg-red-200 text-red-800",
   };
 
   // ===========================
-  // Mock Data
+  // Preprocessed Product Data
   // ===========================
   const productData = [
     {
@@ -116,11 +111,40 @@ const ProductListPage = () => {
       name: "Swis Watch",
       image: Watch,
       price: "$1699.99",
-      category: "Accesories",
+      category: "Accessories",
       rating: 3.5,
       status: "Out of Stock",
     },
-  ];
+  ].map((product) => ({
+    ...product,
+    rating: renderStars(product.rating),
+    status: (
+      <span
+        className={`px-3 py-1 rounded-full text-xs font-semibold ${
+          statusStyles[product.status]
+        }`}
+      >
+        {words[product.status] || product.status}
+      </span>
+    ),
+  }));
+
+  // ===========================
+  // Action Buttons
+  // ===========================
+  const handleActions = (row) => (
+    <div className="flex space-x-2">
+      <button className="text-white bg-green-400 hover:bg-green-500 p-2 rounded-md">
+        <FaPencilAlt />
+      </button>
+      <button className="text-red-400 hover:text-red-500 border-red-400 hover:border-red-500 rounded-md p-2 border-2">
+        <FaTrashAlt />
+      </button>
+      <button className="text-blue-400 hover:text-blue-500 border-blue-400 hover:border-blue-500 rounded-md p-2 border-2">
+        <FaEye />
+      </button>
+    </div>
+  );
 
   // ===========================
   // JSX Render
@@ -137,17 +161,17 @@ const ProductListPage = () => {
       />
 
       {/* Product List Section */}
-      <div className="sm:bg-white mt-3 w-full sm:p-3 bg-none p-0 rounded-lg  sm:shadow-lg">
+      <div className="sm:bg-white mt-3 w-full sm:p-3 bg-none p-0 rounded-lg sm:shadow-lg">
         {/* Header and Search Bar */}
         <div className="flex justify-between">
           <SearchInput
             className="w-72"
-            placeholder={"Search Prodcut by name"}
+            placeholder={words["Search Product"] || "Search Product..."}
           />
 
           <Button
             type="button"
-            text="Add Product"
+            text={words["Add Product"] || "Add Product"}
             className="px-4 bg-green-500 hover:bg-green-600 sm:flex hidden"
           />
         </div>
@@ -155,19 +179,17 @@ const ProductListPage = () => {
         {/* DataTable */}
         <DataTable
           tableHeader={[
-            { key: "image", label: "Image" },
-            { key: "name", label: "Product Name" },
-            { key: "price", label: "Price" },
-            { key: "category", label: "Category" },
-            { key: "rating", label: "Rating" },
+            { key: "image", label: words["Image"] || "Image" },
+            { key: "name", label: words["Product Name"] || "Product Name" },
+            { key: "price", label: words["Price"] || "Price" },
+            { key: "category", label: words["Category"] || "Category" },
+            { key: "rating", label: words["Rating"] || "Rating" },
+            { key: "status", label: words["Status"] || "Status" },
           ]}
-          hasStatusColumn={true}
-          tableData={productData.map((product) => ({
-            ...product,
-            rating: renderStars(product.rating),
-          }))}
+          tableData={productData}
           buttons={handleActions}
           searchColumn="name"
+          hasStatusColumn={true}
           sortKey="id"
           actionsColumnName="Actions"
           sortDirection="ascending"
