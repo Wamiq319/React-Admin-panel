@@ -1,6 +1,8 @@
 // FILE FOR IMPORTING ALL THE COMPONENTS AT ONE PLACE SO THEY CAN BE USES AND IMPORT FORM ONE FILE
 import DataTable from "../components/DataTable";
 import SideBar from "../components/Sidebar";
+import DataBarChart from "./charts/DataBarChart";
+import DataLineChart from "./charts/DataLineChart";
 
 import Header from "../components/Header";
 import { Button, InputField } from "../components/FormComponents";
@@ -11,9 +13,14 @@ import PageHeader from "../components/PageHeader";
 import PageNav from "../components/PageNav";
 import Spinner from "../components/Spinner";
 import Card from "../components/StatusCards";
+import DashboardCard from "./DashboardCard";
 import Search from "../components/Search";
+import DataPieChart from "./charts/DataPieChart";
+import DataRadarChart from "./charts/DataRadarChart";
 export {
   DataTable,
+  DataBarChart,
+  DataLineChart,
   SideBar,
   Header,
   Button,
@@ -25,5 +32,8 @@ export {
   PageNav,
   Spinner,
   Card,
+  DashboardCard,
+  DataPieChart,
+  DataRadarChart,
   Search,
 };

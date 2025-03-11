@@ -2,14 +2,18 @@ import React from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { SidebarContext } from "../../context/SidebarContext";
-
 import { SideBar, Header } from "../../components";
+import ProductListPage from "../Product";
 
 import {
-  DashboardPage,
+  StoreOverViewPage,
   ProductUploadPage,
   AttributePage,
   ClassificationPage,
+  SalesAnalyticsPage,
+  AddUserPage,
+  UserRolesPage,
+  UserListPage,
 } from "../../pages";
 
 const Home = () => {
@@ -48,10 +52,15 @@ const Home = () => {
         >
           <Routes>
             <Route path="/" element={<Navigate to="/home/dashboard" />} />
-            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/dashboard" element={<StoreOverViewPage />} />
+            <Route path="/sales-analytics" element={<SalesAnalyticsPage />} />
             <Route path="/product-upload" element={<ProductUploadPage />} />
             <Route path="/attributes" element={<AttributePage />} />
             <Route path="/classification" element={<ClassificationPage />} />
+            <Route path="/add-user" element={<AddUserPage />} />
+            <Route path="/user-roles" element={<UserRolesPage />} />
+            <Route path="/user-list" element={<UserListPage />} />
+            <Route path="/products" element={<ProductListPage />} />
           </Routes>
         </div>
       </div>

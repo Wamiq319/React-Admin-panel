@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { InputField, Button } from "../../components/FormComponents";
 import PageHeader from "../../components/PageHeader";
 
-// Icons`
+// Icons
 import { FaSave, FaPlus, FaUpload } from "react-icons/fa";
 
 // Mock Data
@@ -71,7 +71,6 @@ const ProductUploadPage = () => {
 
   useEffect(() => {
     const Brands = getRelatedBrands(formData.subcategory);
-
     setBrandOptions(Brands);
   }, [formData, formData.subcategory]);
 
@@ -97,6 +96,7 @@ const ProductUploadPage = () => {
       setImages(newImages);
     }
   };
+
   const handleAddVariantType = (e) => {};
   const handleremoveVariantType = (e) => {};
 
@@ -110,7 +110,7 @@ const ProductUploadPage = () => {
   };
 
   return (
-    <div className="product-page-wrapper bg-none">
+    <div className="product-page-wrapper bg-none ">
       {/* Page Header */}
       <PageHeader
         title={words["Product Upload"]}
@@ -122,10 +122,10 @@ const ProductUploadPage = () => {
       />
 
       {/* Product Upload Form */}
-      <form onSubmit={handleSubmit} className="mt-2">
-        <div className="flex justify-between">
+      <form onSubmit={handleSubmit} className="mt-4">
+        <div className="flex flex-col lg:flex-row gap-4">
           {/* Left Section */}
-          <div className="bg-white p-3 rounded-lg shadow-lg w-3/5">
+          <div className="bg-white p-4 rounded-lg shadow-lg w-full lg:w-3/5">
             {/* Product Title */}
             <InputField
               label={words["Product Title"]}
@@ -134,7 +134,6 @@ const ProductUploadPage = () => {
               value={formData.productTitle}
               onChange={handleInputChange}
             />
-
             {/* Description */}
             <InputField
               label={words["Product Details"]}
@@ -144,7 +143,7 @@ const ProductUploadPage = () => {
             />
 
             {/* Price and Stock */}
-            <div className="flex gap-4">
+            <div className="flex  flex-row gap-4">
               <InputField
                 label={words["Price"]}
                 type="number"
@@ -164,7 +163,7 @@ const ProductUploadPage = () => {
             </div>
 
             {/* Category and Subcategory */}
-            <div className="flex gap-4 mt-3">
+            <div className="flex flex-col sm:flex-row gap-4 mt-3">
               <InputField
                 label={words["Category"]}
                 type="select"
@@ -206,9 +205,9 @@ const ProductUploadPage = () => {
           </div>
 
           {/* Right Section */}
-          <div className="bg-white p-3 rounded-lg shadow-lg w-[39%]">
+          <div className="bg-white p-4 rounded-lg shadow-lg w-full lg:w-[39%]">
             {/* Brand and Variant */}
-            <div className="flex ">
+            <div className="flex flex-col sm:flex-row gap-4">
               <InputField
                 label={words["Variant"]}
                 type="select"
@@ -225,39 +224,31 @@ const ProductUploadPage = () => {
               <Button
                 text="Add"
                 icon={<FaPlus />}
-                className="text-sm h-[43px] w-40 mt-auto"
+                className="text-sm h-[43px] w-full sm:w-40 mt-auto bg-orange-500 hover:bg-orange-600"
                 onClick={handleAddVariantType}
               />
             </div>
             <div className="flex flex-wrap m-1">
               {variants instanceof Set &&
-                [...variants].map(
-                  (
-                    variant,
-                    index // Convert the Set to an Array using the spread operator
-                  ) => (
-                    <span
-                      key={index}
-                      className="bg-orange-500 m-1 text-white p-1 mx-1 rounded-md flex relative"
-                    >
-                      <p className="px-4">{variant}</p>
-                      {/* <button className="text-white rounded-full shadow-md absolute top-0 right-0 p-1 w-5 h-5 flex items-center justify-center">
-                        x
-                      </button> */}
-                    </span>
-                  )
-                )}
+                [...variants].map((variant, index) => (
+                  <span
+                    key={index}
+                    className="bg-orange-500 m-1 text-white p-1 mx-1 rounded-md flex relative"
+                  >
+                    <p className="px-4">{variant}</p>
+                  </span>
+                ))}
             </div>
           </div>
         </div>
 
         {/* Image Upload Section */}
-        <div className="bg-white mt-4 p-3 rounded-lg shadow-lg">
-          <div className="flex justify-around">
+        <div className="bg-white mt-4 p-4 rounded-lg shadow-lg">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
             {images.map((image, index) => (
               <div
                 key={index}
-                className="relative cursor-pointer w-48 h-48 border-2 border-dashed border-orange-500 p-1 rounded-md"
+                className="relative cursor-pointer w-full h-32 sm:h-48 border-2 border-dashed border-orange-500 p-1 rounded-md"
                 onClick={() =>
                   document.getElementById(`image-upload-${index}`).click()
                 }
@@ -266,10 +257,10 @@ const ProductUploadPage = () => {
                   <img
                     src={image}
                     alt={`Product Image ${index + 1}`}
-                    className="w-full h-full object-scale-down"
+                    className="w-full h-full object-cover rounded-md"
                   />
                 ) : (
-                  <div className="flex items-center justify-center h-full text-gray-500">
+                  <div className="flex items-center justify-center h-full text-gray-500 text-sm sm:text-base">
                     {words["Click to upload"]}
                   </div>
                 )}
@@ -286,18 +277,18 @@ const ProductUploadPage = () => {
         </div>
 
         {/* Submit and Save Buttons */}
-        <div className="flex justify-between mt-4">
+        <div className="flex flex-row gap-2 mt-4">
           <Button
             type="submit"
             text={productId ? words["Update Product"] : words["Add Product"]}
             icon={productId ? <FaUpload /> : <FaPlus />}
-            className="w-1/2"
+            className="w-full sm:w-1/2 bg-green-500 hover:bg-green-600"
           />
           <Button
             type="button"
             text={words["Save Draft"]}
             icon={<FaSave />}
-            className="w-[49%]"
+            className="w-full sm:w-[49%] bg-orange-500 hover:bg-orange-600"
           />
         </div>
       </form>

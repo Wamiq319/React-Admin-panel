@@ -20,9 +20,9 @@ const SideBar = () => {
       link: "/home/dashboard",
       icon: MdOutlineDashboard,
       subMenu: [
-        { name: words["Dashboard"], link: "/home/dashboard" },
+        { name: words["Overview"], link: "/home/dashboard" },
         {
-          name: words["Sale Analytic"],
+          name: words["Sales"],
           link: "/home/sales-analytics",
           icon: IoMdAnalytics,
         },
@@ -39,16 +39,7 @@ const SideBar = () => {
         { name: words["Product Attributes"], link: "/home/attributes" },
       ],
     },
-    {
-      name: words["Poster Banners"],
-      link: "/home/poster-banners",
-      icon: FaClipboardList,
-    },
-    {
-      name: words["Offers"],
-      link: "/home/offers",
-      icon: FaChartLine,
-    },
+
     {
       name: words["Orders"],
       link: "/home/all-orders",
@@ -66,10 +57,14 @@ const SideBar = () => {
       ],
     },
     {
-      name: words["Users"],
-      link: "/home/customers",
+      name: words["Users"], // Main Menu for User Management
+      link: "/home/user-list",
       icon: AiOutlineUser,
-      subMenu: [{ name: words["Customer List"], link: "/home/customer-list" }],
+      subMenu: [
+        { name: words["User List"], link: "/home/user-list" }, // List of users
+        { name: words["Add User"], link: "/home/add-user" }, // Add a new user
+        { name: words["User Roles"], link: "/home/user-roles" }, // Manage user roles (optional)
+      ],
     },
   ];
 
@@ -81,7 +76,7 @@ const SideBar = () => {
   return (
     <div
       className={`Side-bar bg-white ${
-        isSidebarCollapsed ? "w-20 bg-opacity-45" : "w-64"
+        isSidebarCollapsed ? "w-20 bg-opacity-45" : "w-72"
       } duration-1000 transition-all text-slate-700 pt-0 pb-11`}
     >
       <div className="mt-4 flex flex-col gap-2 relative z-20">
@@ -133,7 +128,9 @@ const SideBar = () => {
                       ) : (
                         <FaChevronRight
                           size={14}
-                          className={lang === "urd" ? "rotate-180" : ""}
+                          className={
+                            lang === "urd" || lang == "ar" ? "rotate-180" : ""
+                          }
                         />
                       )}
                     </button>

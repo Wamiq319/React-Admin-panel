@@ -75,7 +75,7 @@ const DataLineChart = ({ data }) => {
     scales: {
       y: {
         beginAtZero: false,
-        min: 0,
+
         grid: { display: false },
         ticks: { display: true, stepSize: 20 },
       },
@@ -106,7 +106,7 @@ const DataLineChart = ({ data }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-4 my-1 h-full">
+    <div className="bg-white rounded-lg shadow-lg p-4 my-1 h-[98%]">
       {/* ===========================
         Header Section
       =========================== */}

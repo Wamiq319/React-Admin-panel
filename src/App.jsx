@@ -5,17 +5,22 @@ import Home from "./pages/Home";
 import Login from "./pages/Auth/Login";
 import "./index.css";
 import "./App.css";
-const isAuthenticated = true;
-const PrivateRoute = ({ element, redirectTo }) => {
-  return isAuthenticated ? element : <Navigate to={redirectTo} />;
-};
 
 function App() {
-  // Access the language state from Redux (or other context)
-  const lang = useSelector((state) => state.lang.lang); // Replace with your state structure
+  const lang = useSelector((state) => state.lang.lang);
+  const isAuthenticated = useSelector((state) => state.auth.isLoggedIn);
+
+  // Set the direction based on the language (RTL for Arabic and Urdu, LTR for others)
+  const direction = lang === "ar" || lang === "urd" ? "rtl" : "ltr";
+
+  const PrivateRoute = ({ element, redirectTo }) => {
+    return isAuthenticated ? element : <Navigate to={redirectTo} />;
+  };
 
   return (
-    <div dir={lang === "urd" ? "rtl" : "ltr"}>
+    <div dir={direction}>
+      {" "}
+      {/* This dynamically sets the text direction */}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route

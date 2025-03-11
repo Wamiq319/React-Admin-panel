@@ -290,7 +290,7 @@ const AttributePage = () => {
             key={buttons[activeTab].key}
             text={buttons[activeTab].label}
             icon={<FaPlus />}
-            className="text-sm mx-1 w-1/3"
+            className="text-sm mx-1 w-1/3 bg-orange-500 hover:bg-orange-600"
             onClick={() => handleOpenModal(buttons[activeTab].key)}
           />
         </div>

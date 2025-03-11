@@ -5,10 +5,12 @@ const PageHeader = ({ title, breadcrumbs }) => {
   return (
     <div className="bg-white p-4 w-full flex sm:flex-row justify-between items-center rounded-lg shadow-lg">
       {/* Title */}
-      <h6 className="font-bold text-xl text-slate-800">{title}</h6>
+      <h6 className="font-bold text-xl text-slate-800 sm:text-left text-center w-full">
+        {title}
+      </h6>
 
       {/* Breadcrumbs */}
-      <div className="flex space-x-2 mt-2 sm:mt-0">
+      <div className="flex space-x-2 mt-2 sm:mt-0 sm:flex hidden">
         {breadcrumbs.map((breadcrumb, index) => (
           <React.Fragment key={index}>
             {/* If it's not the last breadcrumb, we will add a separator */}

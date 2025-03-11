@@ -127,16 +127,22 @@ const DataBarChart = ({ data }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-4 h-full my-1 flex flex-col justify-end">
+    <div className="bg-white h-[98%] rounded-lg shadow-lg p-4   flex flex-col ">
       {/* ===========================
         Header Section
       =========================== */}
-      <div className=" mb-3 flex justify-between ">
-        <h2 className="mx-1 text-xl font-bold">{data.header.title}</h2>
+      <div className="mb-3 flex justify-between">
+        <h2 className="mx-1 text-sm md:text-xl lg:text-2xl font-bold text-nowrap">
+          {data.header.title}
+        </h2>
         {/* Header subtitle section */}
-        <div className=" flex">
-          <h2 className="mx-1 font-bold">{data.header.subTitle}</h2>
-          <h2 className="text-orange-500 font-bold">{data.header.value}</h2>
+        <div className="flex">
+          <h2 className="mx-1 text-sm md:text-base lg:text-lg font-bold text-nowrap">
+            {data.header.subTitle}
+          </h2>
+          <h2 className="text-orange-500 text-sm md:text-base lg:text-lg font-bold text-nowrap">
+            {data.header.value}
+          </h2>
         </div>
       </div>
 

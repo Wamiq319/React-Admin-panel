@@ -153,7 +153,7 @@ const ClassificationPage = () => {
     message,
     duration = 2000,
     className = "",
-    type = "success"
+    type = ""
   ) => {
     dispatch(
       showNotification({
@@ -193,12 +193,12 @@ const ClassificationPage = () => {
     switch (activeTab) {
       case "category":
         if (!formData.image) {
-          triggerNotification("Upload Image for Category", 2000, "bg-red-500");
+          triggerNotification("Upload Image for Category", 2000, error);
           return;
         }
 
         if (!formData.categoryName) {
-          triggerNotification("Enter Category Name", 2000, "bg-red-500");
+          triggerNotification("Enter Category Name", 2000, error);
           return;
         }
 
@@ -211,12 +211,12 @@ const ClassificationPage = () => {
 
       case "subcategory":
         if (!formData.categoryId) {
-          triggerNotification("Select the Category", 2000, "bg-red-500");
+          triggerNotification("Select the Category", 2000, "error");
           return;
         }
 
         if (!formData.subCategoryName) {
-          triggerNotification("Enter SubCategoryName", 2000, "bg-red-500");
+          triggerNotification("Enter SubCategoryName", 2000, "error");
           return;
         }
 
@@ -228,12 +228,12 @@ const ClassificationPage = () => {
       case "brand":
         console.log(formData);
         if (!formData.subCategoryId) {
-          triggerNotification("Select the Sub Category", 2000, "bg-red-500");
+          triggerNotification("Select the Sub Category", 2000, "error");
           return;
         }
 
         if (!formData.brandName) {
-          triggerNotification("Enter Brand Name", 2000, "bg-red-500");
+          triggerNotification("Enter Brand Name", 2000, "error");
           return;
         }
 
@@ -368,8 +368,8 @@ const ClassificationPage = () => {
       />
 
       <div className="mt-4 flex justify-start">
-        <div className="w-80">
-          <SearchInput className="w-72" />
+        <div className="w-80 sm:flex hidden">
+          <SearchInput className="w-72 " />
         </div>
         <PageNav
           className="flex-1"
@@ -382,7 +382,7 @@ const ClassificationPage = () => {
             key={buttons[activeTab].key}
             text={buttons[activeTab].label}
             icon={<FaPlus />}
-            className="text-sm mx-1 w-1/3"
+            className="text-sm mx-1 w-1/3 bg-orange-500 hover:bg-orange-600"
             onClick={() => handleOpenModal(activeTab)}
           />
         </div>

@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { urd } from "../../lang/urd"; // Ensure the Urdu language file is imported correctly
-import { eng } from "../../lang/eng"; // Ensure the English language file is imported correctly
+import { urd } from "../../lang/urd";
+import { eng } from "../../lang/eng";
+import { ar } from "../../lang/ar";
+import { fr } from "../../lang/fr";
 
 // Initial state with default language as English
 const initialState = {
@@ -21,6 +23,10 @@ const langSlice = createSlice({
         state.words = eng; // load English words
       } else if (action.payload === "urd") {
         state.words = urd; // load Urdu words
+      } else if (action.payload === "fr") {
+        state.words = fr; // load French words
+      } else if (action.payload === "ar") {
+        state.words = ar; // load Arabic words
       }
     },
   },
