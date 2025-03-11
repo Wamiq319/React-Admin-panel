@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
   FaTimes,
@@ -10,41 +10,49 @@ import {
 } from "react-icons/fa";
 import Barcode from "react-barcode";
 
-const OrderInfoPage = ({ order, onClose }) => {
+const OrderInfoPage = ({ order, onClose, updatedStatus }) => {
   const words = useSelector((state) => state.lang.words);
+  const [currentStatus, setCurrentStatus] = useState(order.status);
 
-  // Define status translations and colors
-  const statusData = {
-    Processing: {
-      label: words["Processing"] || "Processing",
-      color: "bg-yellow-500",
-    },
-    Shipped: { label: words["Shipped"] || "Shipped", color: "bg-blue-500" },
-    Delivered: {
-      label: words["Delivered"] || "Delivered",
-      color: "bg-green-500",
-    },
-    Canceled: { label: words["Canceled"] || "Canceled", color: "bg-red-500" },
-  };
+  useEffect(() => {
+    if (updatedStatus) {
+      setCurrentStatus(updatedStatus);
+    }
+  }, [updatedStatus]);
 
-  // Define order steps
+  // Order steps with unique icon colors & light backgrounds
   const steps = [
-    { key: "Processing", icon: <FaClipboardList /> },
-    { key: "Designing", icon: <FaPencilRuler /> },
-    { key: "Shipped", icon: <FaShippingFast /> },
-    { key: "En Route", icon: <FaTruck /> },
-    { key: "Delivered", icon: <FaHome /> },
+    {
+      key: "Processing",
+      icon: <FaClipboardList />,
+      color: "text-yellow-600",
+      bg: "bg-yellow-100",
+    },
+    {
+      key: "Ready",
+      icon: <FaPencilRuler />,
+      color: "text-gray-600",
+      bg: "bg-gray-200",
+    },
+    {
+      key: "Shipped",
+      icon: <FaShippingFast />,
+      color: "text-blue-600",
+      bg: "bg-blue-100",
+    },
+    {
+      key: "En Route",
+      icon: <FaTruck />,
+      color: "text-orange-600",
+      bg: "bg-orange-100",
+    },
+    {
+      key: "Delivered",
+      icon: <FaHome />,
+      color: "text-green-600",
+      bg: "bg-green-100",
+    },
   ];
-
-  // Get current step index based on progress
-  const getCurrentStep = (progress) => {
-    if (progress === 100) return 4;
-    if (progress >= 75) return 3;
-    if (progress >= 50) return 2;
-    if (progress >= 25) return 1;
-    return 0;
-  };
-  const currentStep = getCurrentStep(order.progress);
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
@@ -79,15 +87,11 @@ const OrderInfoPage = ({ order, onClose }) => {
             <strong>{words["Order Date"] || "Order Date"}:</strong> {order.date}
           </p>
 
-          {/* Status Badge */}
+          {/* Status */}
           <p>
             <strong>{words["Status"] || "Status"}:</strong>
-            <span
-              className={`ml-2 px-2 py-1 text-white rounded ${
-                statusData[order.status]?.color
-              }`}
-            >
-              {statusData[order.status]?.label}
+            <span className="ml-2 px-2 py-1 text-white rounded">
+              {currentStatus}
             </span>
           </p>
 
@@ -101,39 +105,44 @@ const OrderInfoPage = ({ order, onClose }) => {
             <label className="text-sm font-semibold">
               {words["Order Progress"] || "Order Progress"}
             </label>
-            <div className="relative flex items-center justify-between">
+
+            {/* Progress Steps */}
+            <div className="flex justify-between items-center mt-4">
               {steps.map((step, index) => (
-                <div
-                  key={index}
-                  className="text-center flex flex-col items-center"
-                >
+                <div key={index} className="flex flex-col items-center">
                   <div
-                    className={`w-10 h-10 flex items-center justify-center rounded-full border-2 
-                    ${
-                      index <= currentStep
-                        ? "bg-purple-600 text-white border-purple-600"
-                        : "bg-gray-300 text-gray-600"
-                    }`}
+                    className={`w-10 h-10 flex items-center justify-center rounded-full border ${step.bg}`}
                   >
-                    {step.icon}
+                    <span className={step.color}>{step.icon}</span>
                   </div>
-                  <p
-                    className={`mt-2 text-xs font-medium ${
-                      index <= currentStep ? "text-black" : "text-gray-400"
-                    }`}
-                  >
+                  <p className="mt-1 text-xs font-medium">
                     {words[step.key] || step.key}
                   </p>
                 </div>
               ))}
             </div>
 
-            {/* Progress Line */}
-            <div className="w-full bg-gray-300 h-1 mt-2 relative">
+            {/* Progress Bar */}
+            <div className="relative w-full bg-gray-300 h-4 mt-2 rounded-full">
               <div
-                className="absolute top-0 left-0 h-1 bg-purple-600 transition-all duration-300"
-                style={{ width: `${order.progress}%` }}
+                className="absolute top-0 left-0 h-4 rounded-full"
+                style={{
+                  width: `${order.progress}%`,
+                  opacity: 0.7,
+                  backgroundColor:
+                    order.progress === 100
+                      ? "green"
+                      : order.progress >= 75
+                      ? "blue"
+                      : order.progress >= 50
+                      ? "orange"
+                      : "yellow",
+                }}
               ></div>
+              {/* Progress Number */}
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 text-sm font-semibold text-white">
+                {order.progress}%
+              </div>
             </div>
           </div>
         </div>

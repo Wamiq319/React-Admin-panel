@@ -7,7 +7,6 @@ import { IoSwapVertical } from "react-icons/io5";
 --------------------------------------------- */
 
 const DataTable = ({
-  hasStatusColumn = false,
   tableHeader,
   tableData,
   searchTerm,
@@ -139,13 +138,6 @@ const DataTable = ({
               {dropdownColumnName && (
                 <th className="p-3 border-b-2 border-gray-300 text-left">
                   {dropdownColumnName}
-                </th>
-              )}
-
-              {/* Status Column */}
-              {hasStatusColumn && (
-                <th className="p-3 border-b-2 border-gray-300 text-left">
-                  Status
                 </th>
               )}
 

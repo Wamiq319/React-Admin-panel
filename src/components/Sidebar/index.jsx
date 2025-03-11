@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { SidebarContext } from "../../context/SidebarContext";
 import { MdOutlineDashboard } from "react-icons/md";
 import { AiOutlineUser } from "react-icons/ai";
-import { FaBox, FaChartLine, FaClipboardList, FaUndo } from "react-icons/fa";
+import { FaBox, FaParachuteBox } from "react-icons/fa";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
 import { IoMdAnalytics } from "react-icons/io";
 
@@ -43,7 +43,7 @@ const SideBar = () => {
     {
       name: words["Orders"],
       link: "/home/all-orders",
-      icon: FaBox,
+      icon: FaParachuteBox,
       subMenu: [{ name: words["All Orders"], link: "/home/all-orders" }],
     },
     {

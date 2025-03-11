@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { FaEye } from "react-icons/fa";
+
+// Components
 import { DataTable, PageHeader, SearchInput } from "../../components";
-import OrderInfoModal from "./OrderDetailPage"; // Corrected Import
+import OrderInfoModal from "./OrderDetailPage"; // Correct Import
 
 // Sample order data
-const ordersData = [
+const initialOrdersData = [
   {
     id: 101,
     customer: "John Doe",
@@ -14,7 +16,7 @@ const ordersData = [
     date: "2025-03-12",
     address: "123 Main St, Los Angeles, CA",
     barcode: "1234567890",
-    progress: 50,
+    progress: 20,
   },
   {
     id: 102,
@@ -24,7 +26,7 @@ const ordersData = [
     date: "2025-03-11",
     address: "45 Elm St, New York, NY",
     barcode: "9876543210",
-    progress: 75,
+    progress: 60,
   },
   {
     id: 103,
@@ -41,22 +43,30 @@ const ordersData = [
 const OrderListPage = () => {
   const words = useSelector((state) => state.lang.words);
   const [selectedOrder, setSelectedOrder] = useState(null);
+  const [ordersData, setOrdersData] = useState(initialOrdersData);
 
-  // Order Status UI with Translations
-  const renderStatus = (status) => {
-    const statusStyles = {
-      Processing: "bg-yellow-500 bg-opacity-75 text-yellow-900",
-      Shipped: "bg-yellow-200 text-yellow-800",
-      Delivered: "bg-green-200 text-green-800",
-      Canceled: "bg-red-200 text-red-800",
-    };
+  // Order Status Styling
+  const statusStyles = {
+    Processing: "bg-yellow-200 text-yellow-800",
+    Shipped: "bg-yellow-200 text-yellow-800",
+    Delivered: "bg-green-200 text-green-800",
+    Canceled: "bg-red-200 text-red-800",
+  };
 
-    return (
-      <span
-        className={`px-3 py-1 rounded-full text-xs font-semibold ${statusStyles[status]}`}
-      >
-        {words[status] || status}
-      </span>
+  // Status Options for Dropdown
+  const statusOptions = [
+    { value: "Processing", label: words["Processing"] || "Processing" },
+    { value: "Shipped", label: words["Shipped"] || "Shipped" },
+    { value: "Delivered", label: words["Delivered"] || "Delivered" },
+    { value: "Canceled", label: words["Canceled"] || "Canceled" },
+  ];
+
+  // Update Status Function
+  const handleStatusChange = (orderId, newStatus) => {
+    setOrdersData((prevOrders) =>
+      prevOrders.map((order) =>
+        order.id === orderId ? { ...order, status: newStatus } : order
+      )
     );
   };
 
@@ -99,10 +109,35 @@ const OrderListPage = () => {
             { key: "total", label: words["Total"] || "Total" },
             { key: "status", label: words["Status"] || "Status" },
             { key: "date", label: words["Date"] || "Date" },
+            {
+              key: "statusDropdown",
+              label: words["Change Status"] || "Change Status",
+            },
           ]}
           tableData={ordersData.map((order) => ({
             ...order,
-            status: renderStatus(order.status),
+            status: (
+              <span
+                className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                  statusStyles[order.status]
+                }`}
+              >
+                {words[order.status] || order.status}
+              </span>
+            ),
+            statusDropdown: (
+              <select
+                className="border border-gray-300 rounded px-2 py-1 text-sm"
+                value={order.status}
+                onChange={(e) => handleStatusChange(order.id, e.target.value)}
+              >
+                {statusOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            ),
           }))}
           buttons={handleActions}
           searchColumn="customer"
