@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { IoSwapVertical } from "react-icons/io5";
 
+/* ---------------------------------------------
+   Status Colors for Badge Styling
+--------------------------------------------- */
 const statusColors = {
   Complete: "bg-green-200 text-green-800",
   Pending: "bg-yellow-200 text-yellow-800",
@@ -25,14 +28,21 @@ const DataTable = ({
   dropdownOptions,
   dropdownColumnName,
 }) => {
+  /* ---------------------------------------------
+     State Management
+  --------------------------------------------- */
   const [sortConfig, setSortConfig] = useState({
     key: sortKey ?? "id",
     direction: sortDirection ?? "descending",
   });
+
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedRows, setSelectedRows] = useState([]);
   const [selectAll, setSelectAll] = useState(false);
 
+  /* ---------------------------------------------
+     Sorting Functionality
+  --------------------------------------------- */
   const handleSort = (key) => {
     let direction = "ascending";
     if (sortConfig.key === key && sortConfig.direction === "ascending") {
@@ -41,6 +51,9 @@ const DataTable = ({
     setSortConfig({ key, direction });
   };
 
+  /* ---------------------------------------------
+     Pagination Handlers
+  --------------------------------------------- */
   const handlePageChange = (newPage) => {
     if (
       newPage >= 1 &&
@@ -50,6 +63,9 @@ const DataTable = ({
     }
   };
 
+  /* ---------------------------------------------
+     Data Sorting and Filtering
+  --------------------------------------------- */
   const sortedData = [...tableData].sort((a, b) => {
     if (sortConfig.key !== null) {
       if (a[sortConfig.key] < b[sortConfig.key]) {
@@ -75,9 +91,9 @@ const DataTable = ({
     currentPage * rowsPerPage
   );
 
-  const shouldShowStatusColumn =
-    hasStatusColumn || tableData.some((row) => row.status !== undefined);
-
+  /* ---------------------------------------------
+     Row Selection Handlers
+  --------------------------------------------- */
   const handleRowSelect = (id) => {
     if (selectedRows.includes(id)) {
       setSelectedRows(selectedRows.filter((rowId) => rowId !== id));
@@ -95,19 +111,26 @@ const DataTable = ({
     setSelectAll(!selectAll);
   };
 
+  /* ---------------------------------------------
+     Render Table
+  --------------------------------------------- */
   return (
     <div className="data-table-container mt-4 overflow-hidden rounded-lg shadow-lg border border-gray-300 w-full">
+      {/* Table Header */}
       <div className="overflow-x-auto">
         <table className="data-table min-w-full divide-y">
           <thead className="bg-gray-100 font-bold">
             <tr>
-              <th className="p-3 border-b-2 border-gray-300">
+              {/* Select All Checkbox */}
+              <th className="p-3 text-left border-b-2 border-gray-300">
                 <input
                   type="checkbox"
                   checked={selectAll}
                   onChange={handleSelectAll}
                 />
               </th>
+
+              {/* Column Headers with Sorting */}
               {tableHeader.map((header, index) => (
                 <th
                   key={index}
@@ -120,16 +143,22 @@ const DataTable = ({
                   </span>
                 </th>
               ))}
+
+              {/* Dropdown Column */}
               {dropdownColumnName && (
                 <th className="p-3 border-b-2 border-gray-300 text-left">
                   {dropdownColumnName}
                 </th>
               )}
-              {shouldShowStatusColumn && (
+
+              {/* Status Column */}
+              {hasStatusColumn && (
                 <th className="p-3 border-b-2 border-gray-300 text-left">
                   Status
                 </th>
               )}
+
+              {/* Actions Column */}
               {buttons && (
                 <th className="p-3 border-b-2 border-gray-300 text-left">
                   Actions
@@ -137,6 +166,8 @@ const DataTable = ({
               )}
             </tr>
           </thead>
+
+          {/* Table Body */}
           <tbody>
             {paginatedData.map((row, index) => (
               <tr
@@ -145,6 +176,7 @@ const DataTable = ({
                   index % 2 === 0 ? "bg-white" : "bg-gray-50"
                 }`}
               >
+                {/* Row Selection */}
                 <td className="font-bold text-gray-800 p-3 text-sm sm:text-base">
                   <input
                     type="checkbox"
@@ -153,6 +185,7 @@ const DataTable = ({
                   />
                 </td>
 
+                {/* Data Columns */}
                 {tableHeader.map((col, colIndex) => (
                   <td key={colIndex} className="p-3 text-sm sm:text-base">
                     {col.key === "image" ? (
@@ -170,13 +203,15 @@ const DataTable = ({
                     )}
                   </td>
                 ))}
+
+                {/* Dropdown Column */}
                 {dropdownColumnName && (
                   <td className="p-3 text-sm sm:text-base">
                     <select
                       value={row[dropdownColumnName]}
-                      onChange={(e) => {
-                        row[dropdownColumnName] = e.target.value;
-                      }}
+                      onChange={(e) =>
+                        (row[dropdownColumnName] = e.target.value)
+                      }
                       className="border p-2 rounded-md"
                     >
                       {dropdownOptions.map((option, idx) => (
@@ -187,7 +222,9 @@ const DataTable = ({
                     </select>
                   </td>
                 )}
-                {shouldShowStatusColumn && (
+
+                {/* Status Column */}
+                {hasStatusColumn && (
                   <td className="p-3 text-sm sm:text-base">
                     {row.status ? (
                       <span
@@ -203,6 +240,8 @@ const DataTable = ({
                     )}
                   </td>
                 )}
+
+                {/* Actions Column */}
                 {buttons && (
                   <td className="p-3 text-sm sm:text-base">{buttons(row)}</td>
                 )}
@@ -211,6 +250,8 @@ const DataTable = ({
           </tbody>
         </table>
       </div>
+
+      {/* Pagination Controls */}
       <div className="p-3 bg-white flex justify-between items-center border-t border-gray-300">
         <span className="font-bold text-gray-600">
           Total Records: {tableData.length}
@@ -237,29 +278,6 @@ const DataTable = ({
       </div>
     </div>
   );
-};
-
-DataTable.propTypes = {
-  tableHeader: PropTypes.arrayOf(
-    PropTypes.shape({
-      key: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  tableData: PropTypes.arrayOf(PropTypes.object).isRequired,
-  searchTerm: PropTypes.string,
-  searchColumn: PropTypes.string,
-  sortKey: PropTypes.string,
-  sortDirection: PropTypes.string,
-  buttons: PropTypes.func,
-  hasStatusColumn: PropTypes.bool,
-  dropdownColumnName: PropTypes.string,
-  dropdownOptions: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-    })
-  ),
 };
 
 export default DataTable;

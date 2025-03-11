@@ -3,18 +3,19 @@ export const urd = {
   //       GENERAL
   // +++++++++++++++++++++++++++
   Dashboard: "ڈیش بورڈ",
-  analytics: "تجزیات",
+  Analytics: "تجزیات",
   Search: "تلاش",
   Brand: "برانڈ",
   Attributes: "خصوصیات",
   "Best Selling Product": "سب سے زیادہ فروخت ہونے والی مصنوعات",
-  Admin: "ایڈمن",
+  Sales: "فروخت",
+  Overview: "جائزہ",
 
   // +++++++++++++++++++++++++++
   //       PRODUCT CLASSIFICATION
   // +++++++++++++++++++++++++++
   Classification: "درجہ بندی",
-  "Classify the Product": "مصنوعات کو درجہ بندی کریں",
+  "Classify the Product": "مصنوعات کی درجہ بندی کریں",
   Categories: "زمرے",
   Category: "زمرہ",
   SubCategories: "ذیلی زمرے",
@@ -24,43 +25,47 @@ export const urd = {
   "Enter subcategory name": "ذیلی زمرہ کا نام درج کریں",
   "Enter Category Name": "زمرہ کا نام درج کریں",
   "Choose Category": "زمرہ منتخب کریں",
-  "Add Variant Type": "ورینٹ کی قسم شامل کریں",
-  "Add Variant": "ورینٹ شامل کریں",
+  "Add Variant Type": "ورائٹی کی قسم شامل کریں",
+  "Add Variant": "ورائٹی شامل کریں",
   "Add Brand": "برانڈ شامل کریں",
 
   // +++++++++++++++++++++++++++
   //       SUMMARY / STATS
   // +++++++++++++++++++++++++++
-  "Total Users": "مجموعی صارفین",
-  "Total Orders": "مجموعی آرڈرز",
-  "Total Products": "مجموعی مصنوعات",
-  "Total Sales": "مجموعی فروخت",
+  "Total Users": "کل صارفین",
+  "Total Orders": "کل آرڈرز",
+  "Total Products": "کل مصنوعات",
+  "Total Sales": "کل فروخت",
   "Best Selling Product": "سب سے زیادہ فروخت ہونے والی مصنوعات",
-  Home: "ہوم",
+  Home: "گھر",
 
   // +++++++++++++++++++++++++++
   //       TABLE HEADERS
   // +++++++++++++++++++++++++++
-  Table: "ٹیبل",
-  "Sorted by name": "نام کے مطابق ترتیب دی گئی",
-  "Sorted by category": "زمرہ کے مطابق ترتیب دی گئی",
-  "Sorted by price": "قیمت کے مطابق ترتیب دی گئی",
-  "Sorted by order": "آرڈر کے مطابق ترتیب دی گئی",
-  "Sorted by sales": "فروخت کے مطابق ترتیب دی گئی",
+  Table: "میز",
+  "Sorted by name": "نام کے مطابق ترتیب دیا گیا",
+  "Sorted by category": "زمرے کے مطابق ترتیب دیا گیا",
+  "Sorted by price": "قیمت کے مطابق ترتیب دیا گیا",
+  "Sorted by order": "آرڈر کے مطابق ترتیب دیا گیا",
+  "Sorted by sales": "فروخت کے مطابق ترتیب دیا گیا",
 
   // +++++++++++++++++++++++++++
   //       ANALYTICS
   // +++++++++++++++++++++++++++
-  "Sale Analytic": "فروخت کا تجزیہ",
+  "Sales Analytics": "فروخت کے تجزیات",
   "On Sale": "فروخت پر",
+  "Store Overview": "دکان کا جائزہ",
 
   // +++++++++++++++++++++++++++
   //       PRODUCT ACTIONS
   // +++++++++++++++++++++++++++
-  "Click to upload": "اپ لوڈ کرنے کے لئے کلک کریں",
+  "Click to upload": "اپ لوڈ کرنے کے لیے کلک کریں",
   "Update Product": "مصنوعات کو اپ ڈیٹ کریں",
   "Add Product": "مصنوعات شامل کریں",
-  "Save Draft": "مسودہ محفوظ کریں",
+  "Save Draft": "ڈرافٹ محفوظ کریں",
+  "Monthly Growth": "ماہانہ ترقی",
+  Discount: "چھوٹ",
+  "Profit Margin": "منافع کا مارجن",
 
   // +++++++++++++++++++++++++++
   //       PRODUCT DETAILS
@@ -70,44 +75,37 @@ export const urd = {
   Name: "نام",
   Price: "قیمت",
   Stock: "اسٹاک",
-  "Variant Name": "ورینٹ کا نام",
-  "Enter Variant type": "ورینٹ کی قسم درج کریں",
+  "Variant Name": "ورائٹی کا نام",
+  "Enter Variant type": "ورائٹی کی قسم درج کریں",
   "Display Name": "ڈسپلے کا نام",
-  "Variant Type": "ورینٹ کی قسم",
+  "Variant Type": "ورائٹی کی قسم",
   "Product Classification": "مصنوعات کی درجہ بندی",
   "Product Attributes": "مصنوعات کی خصوصیات",
-  "Product Details": "پروڈکٹ کی تفصیلات",
+  "User List": "صارف کی فہرست",
 
   // +++++++++++++++++++++++++++
-  //      PLACEHOLDERS
+  //       USER MANAGEMENT
   // +++++++++++++++++++++++++++
-  "Add Product Variant": "مصنوعات کا ورینٹ شامل کریں",
-  "Choose Category": "زمرہ منتخب کریں",
-  "Choose SubCategory": "ذیلی زمرہ منتخب کریں",
-  "Enter Product Title": "مصنوعات کا عنوان درج کریں",
-  "Clasify the Product": "مصنوعات کو درجہ بندی کریں",
-  "Choose Variant Type": "ورینٹ کی قسم منتخب کریں",
-  "Enter Brand Name": "برانڈ کا نام درج کریں",
-  "Enter product Stock": "مصنوعات کا اسٹاک درج کریں",
-  "Enter product Price": "مصنوعات کی قیمت درج کریں",
-  "Enter product description": "مصنوعات کی تفصیل درج کریں",
-  "Add Product Attributes": "مصنوعات کی خصوصیات شامل کریں",
-  "Enter Display Name": "ڈسپلے کا نام درج کریں",
-  "Enter Variant Name": "ورینٹ کا نام درج کریں",
-  
-
-  // +++++++++++++++++++++++++++
-  //       PRODUCTS
-  // +++++++++++++++++++++++++++
-  Products: "مصنوعات",
-  "All Products": "تمام مصنوعات",
-  "Product Management": "مصنوعات کا انتظام",
-  "Products List": "مصنوعات کی فہرست",
-  "Product Upload": "مصنوعات اپ لوڈ کریں",
-  Variant: "ورینٹ",
-  "Draft Products": "مسودہ مصنوعات",
-  "Out of Stock": "اسٹاک سے باہر",
-  "Limited Stock": "محدود اسٹاک",
+  "Add User": "صارف شامل کریں",
+  "User Roles": "صارف کے رولز",
+  Users: "صارفین",
+  "Personal Information": "ذاتی معلومات",
+  Username: "صارف کا نام",
+  "Enter Username": "صارف کا نام درج کریں",
+  Email: "ای میل",
+  "Enter Email": "ای میل درج کریں",
+  "User Role": "صارف کا رول",
+  Role: "رول",
+  "Select Role": "رول منتخب کریں",
+  "Password Settings": "پاس ورڈ کی ترتیبات",
+  Password: "پاس ورڈ",
+  "Enter Password": "پاس ورڈ درج کریں",
+  "Confirm Password": "پاس ورڈ کی تصدیق کریں",
+  "Save User": "صارف کو محفوظ کریں",
+  Cancel: "منسوخ کریں",
+  "User Management": "صارف کا انتظام",
+  Department: "محکمہ",
+  "Enter Department": "محکمہ درج کریں",
 
   // +++++++++++++++++++++++++++
   //       ORDERS DETAILS
@@ -115,6 +113,42 @@ export const urd = {
   Orders: "آرڈرز",
   "All Orders": "تمام آرڈرز",
   "Pending Orders": "زیر التواء آرڈرز",
-  "Cancelled Orders": "منسوخ شدہ آرڈرز",
-  "New Orders": "نئے آرڈرز",
+  "Canceled Orders": "منسوخ آرڈرز",
+  "Completed Orders": "مکمل آرڈرز",
+  "Total Revenue": "کل آمدنی",
+  Profit: "منافع",
+  "Discounts Given": "دی گئی چھوٹ",
+  "Total Sales": "کل فروخت",
+  "Customer Insights": "صارف کے تجزیات",
+  "Active Customers": "فعال صارفین",
+  "New Customers": "نئے صارفین",
+  "Returning Customers": "واپس آنے والے صارفین",
+
+  // +++++++++++++++++++++++++++
+  //       PLACEHOLDERS
+  // +++++++++++++++++++++++++++
+  "Choose SubCategory": "ذیلی زمرہ منتخب کریں",
+  "Add Product Variant": "مصنوعات کی ورائٹی شامل کریں",
+  "Enter Product Title": "مصنوعات کا عنوان درج کریں",
+  "Clasify the Product": "مصنوعات کی درجہ بندی کریں",
+  "Enter Brand Name": "برانڈ کا نام درج کریں",
+  "Enter product Stock": "مصنوعات کا اسٹاک درج کریں",
+  "Enter product Price": "مصنوعات کی قیمت درج کریں",
+  "Enter product description": "مصنوعات کی تفصیل درج کریں",
+  "Add Product Attributes": "مصنوعات کی خصوصیات شامل کریں",
+  "Enter Display Name": "ڈسپلے کا نام درج کریں",
+  "Enter Variant Name": "ورائٹی کا نام درج کریں",
+  "Choose Product Brand": "مصنوعات کا برانڈ منتخب کریں",
+
+  // +++++++++++++++++++++++++++
+  //       PRODUCTS
+  // +++++++++++++++++++++++++++
+  "Product Management": "مصنوعات کا انتظام",
+  "Products List": "مصنوعات کی فہرست",
+  "Product Upload": "مصنوعات اپ لوڈ کریں",
+  Variant: "ورائٹی",
+  "Draft Products": "ڈرافٹ مصنوعات",
+  "Out of Stock": "اسٹاک سے باہر",
+  "Limited Stock": "محدود اسٹاک",
+  "Product Details": "مصنوعات کی تفصیلات",
 };

@@ -3,18 +3,20 @@ export const eng = {
   //       GENERAL
   // +++++++++++++++++++++++++++
   Dashboard: "Dashboard",
-  analytics: "Analytics",
+  Analytics: "Analytics",
   Search: "Search",
   Brand: "Brand",
   Attributes: "Attributes",
   "Best Selling Product": "Best Selling Product",
-  Admin: "Admin",
+  Sales: "Sales",
+  Overview: "Overview",
+  Products: "Products",
+  Revenue: "Revenue",
   Limited: "Limited",
   Pending: "Pending",
   Cancelled: "Cancelled",
   New: "New",
-  Sales: "Sales",
-  Overview: "Overview",
+  "Total Stores": "Total Stores",
 
   // +++++++++++++++++++++++++++
   //       PRODUCT CLASSIFICATION
@@ -43,6 +45,7 @@ export const eng = {
   "Total Sales": "Total Sales",
   "Best Selling Product": "Best Selling Product",
   Home: "Home",
+  Sales: "Sales",
 
   // +++++++++++++++++++++++++++
   //       TABLE HEADERS
@@ -53,8 +56,18 @@ export const eng = {
   "Sorted by price": "Sorted by price",
   "Sorted by order": "Sorted by order",
   "Sorted by sales": "Sorted by sales",
+  Name: "Name",
+  Product: "Product",
+  Date: "Date",
+  Price: "Price",
+  "ID Order": "ID Order",
+  "orders completed": "orders completed",
+  Completed: "Completed",
+  "orders pending": "orders pending",
+  Canceled: "Canceled",
+  "orders canceled": "orders canceled",
 
-  // +++++++++++++++++++++++++++
+  // +++++++++++++++++++++++++++:
   //       ANALYTICS
   // +++++++++++++++++++++++++++
   "Sales Analytics": "Sales Analytics",
@@ -69,12 +82,8 @@ export const eng = {
   "Add Product": "Add Product",
   "Save Draft": "Save Draft",
   "Monthly Growth": "Monthly Growth",
-  "New Customers": "New Customers",
-  "Total Stores": "Total Stores",
-  "Total Revenue": "Total Revenue",
-  "Discounts Given": "Discounts Given",
-  "Profit Margin": "Profit Margin",
   Discount: "Discount",
+  "Profit Margin": "Profit Margin",
 
   // +++++++++++++++++++++++++++
   //       PRODUCT DETAILS
@@ -91,10 +100,13 @@ export const eng = {
   "Product Classification": "Product Classification",
   "Product Attributes": "Product Attributes",
   "User List": "User List",
+
+  // +++++++++++++++++++++++++++
+  //       USER MANAGEMENT
+  // +++++++++++++++++++++++++++
   "Add User": "Add User",
   "User Roles": "User Roles",
   Users: "Users",
-  "Add User": "Add User",
   "Personal Information": "Personal Information",
   Username: "Username",
   "Enter Username": "Enter Username",
@@ -109,61 +121,34 @@ export const eng = {
   "Confirm Password": "Confirm Password",
   "Save User": "Save User",
   Cancel: "Cancel",
-  Home: "Home",
   "User Management": "User Management",
   Department: "Department",
   "Enter Department": "Enter Department",
-  Home: "Home",
-  "User Management": "User Management",
-  "Add User": "Add User",
-  "Add Role": "Add Role",
-  "Sales Dashboard": "Sales Dashboard",
-  Users: "Users",
-  Add: "Add",
-  Roles: "Roles",
-  "User Roles": "User Roles",
-  "Role Name": "Role Name",
-  Description: "Description",
-  "Personal Information": "Personal Information",
-  Username: "Username",
-  "Total Sales": "Total Sales",
-  "Returning Customers": "Returning Customers",
-  "Enter Username": "Enter Username",
-  "New Customers": "New Customers",
-  "Customer Insights": "Customer Insights",
-  "Active Customers:": "Active Customers:",
-  Email: "Email",
-  "ID Order": "ID Order",
-  Name: "Name",
-  Product: "Product",
-  Date: "Date",
-  Price: "Price",
-  "Enter Email": "Enter Email",
-  Role: "Role",
-  "Select Role": "Select Role",
-  Department: "Department",
-  "Enter Department": "Enter Department",
-  "Password Settings": "Password Settings",
-  Password: "Password",
-  "Enter Password": "Enter Password",
-  "Confirm Password": "Confirm Password",
-  "Save User": "Save User",
-  Cancel: "Cancel",
-  Complete: "Complete",
-  Pending: "Pending",
-  Canceled: "Canceled",
-  Edit: "Edit",
-  Delete: "Delete",
+
   // +++++++++++++++++++++++++++
-  //      PLACEHOLDERS
+  //       ORDERS DETAILS
+  // +++++++++++++++++++++++++++
+  Orders: "Orders",
+  "All Orders": "All Orders",
+  "Pending Orders": "Pending Orders",
+  "Canceled Orders": "Canceled Orders",
+  "Completed Orders": "Completed Orders",
+  "Total Revenue": "Total Revenue",
+  Profit: "Profit",
+  "Discounts Given": "Discounts Given",
+  "Total Sales": "Total Sales",
+  "Customer Insights": "Customer Insights",
+  "Active Customers": "Active Customers",
+  "New Customers": "New Customers",
+  "Returning Customers": "Returning Customers",
+
+  // +++++++++++++++++++++++++++
+  //       PLACEHOLDERS
   // +++++++++++++++++++++++++++
   "Choose SubCategory": "Choose SubCategory",
   "Add Product Variant": "Add Product Variant",
-  "Choose Category": "Choose Category",
-  "Choose SubCategory": "Choose SubCategory",
-  "Enter Product Title": "Enter Product title",
+  "Enter Product Title": "Enter Product Title",
   "Clasify the Product": "Clasify the Product",
-  "Choose Variant Type": "Choose Variant Type",
   "Enter Brand Name": "Enter Brand Name",
   "Enter product Stock": "Enter product Stock",
   "Enter product Price": "Enter product Price",
@@ -176,7 +161,6 @@ export const eng = {
   // +++++++++++++++++++++++++++
   //       PRODUCTS
   // +++++++++++++++++++++++++++
-  Products: "Products",
   "Product Management": "Product Management",
   "Products List": "Products List",
   "Product Upload": "Product Upload",
@@ -185,10 +169,4 @@ export const eng = {
   "Out of Stock": "Out of Stock",
   "Limited Stock": "Limited Stock",
   "Product Details": "Product Details",
-
-  // +++++++++++++++++++++++++++
-  //       ORDERS DETAILS
-  // +++++++++++++++++++++++++++
-  Orders: "Orders",
-  "All Orders": "All Orders",
 };

@@ -14,7 +14,10 @@ import Modal from "../../components/Modal";
 import SearchInput from "../../components/Search";
 import Spinner from "../../components/Spinner";
 import Notification from "../../components/Notification";
+
+// Redux Actions
 import { showNotification } from "../../redux/slices/notificationslice";
+
 // Mock Data
 import {
   createVariantType,
@@ -24,7 +27,7 @@ import {
   getVariantTypes,
 } from "../../Mock-DataBase";
 
-const AttributePage = () => {
+const ProductAttributePage = () => {
   // ===========================
   // Redux & State Slices
   // ===========================
@@ -42,7 +45,7 @@ const AttributePage = () => {
   const [formData, setFormData] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
   const [tableData, setTableData] = useState([]);
-  const [modalDropDown, SetModalDropDown] = useState([]);
+  const [modalDropDown, setModalDropDown] = useState([]);
 
   // ===========================
   // Table Headers
@@ -62,11 +65,11 @@ const AttributePage = () => {
   // ===========================
   // Button & Tab Configuration
   // ===========================
-
   const navPageMenu = [
     { key: "type", label: words["Variant Type"] },
     { key: "name", label: words["Variant"] },
   ];
+
   const buttons = {
     type: {
       key: "type",
@@ -94,15 +97,15 @@ const AttributePage = () => {
             break;
           case "name":
             response = getVariantsSummary();
-            const dropdownOptions = getVariantTypes;
-            SetModalDropDown(dropdownOptions);
+            const dropdownOptions = getVariantTypes();
+            setModalDropDown(dropdownOptions);
             break;
           default:
             break;
         }
         setTableData(response);
       } catch (error) {
-        // Handle errors if needed
+        console.error("Error fetching data:", error);
       } finally {
         setIsLoading(false);
       }
@@ -172,7 +175,7 @@ const AttributePage = () => {
         const uniqueTypeNames = [
           ...new Set(updatedData.map((variant) => variant.typeName)),
         ];
-        SetModalDropDown(uniqueTypeNames);
+        setModalDropDown(uniqueTypeNames);
         break;
 
       case "name":
@@ -207,7 +210,7 @@ const AttributePage = () => {
     switch (activeTab) {
       case "type":
         return (
-          <div className="flex justify-between  mb-2">
+          <div className="flex justify-between mb-2">
             <InputField
               label={words["Variant Type"]}
               name="typeName"
@@ -254,7 +257,7 @@ const AttributePage = () => {
   };
 
   // ===========================
-  // JSX Return
+  // JSX Render
   // ===========================
   return (
     <div className="variantPage-wrapper bg-none">
@@ -276,7 +279,7 @@ const AttributePage = () => {
       />
 
       <div className="mt-4 flex justify-start">
-        <div className="w-80">
+        <div className="w-80 sm:flex hidden">
           <SearchInput className="w-72" />
         </div>
         <PageNav
@@ -290,8 +293,8 @@ const AttributePage = () => {
             key={buttons[activeTab].key}
             text={buttons[activeTab].label}
             icon={<FaPlus />}
-            className="text-sm mx-1 w-1/3 bg-orange-500 hover:bg-orange-600"
-            onClick={() => handleOpenModal(buttons[activeTab].key)}
+            className="text-sm mx-1 bg-green-500 hover:bg-green-600"
+            onClick={handleOpenModal}
           />
         </div>
       </div>
@@ -323,7 +326,7 @@ const AttributePage = () => {
       >
         {renderModalContent()}
         <Button
-          className="mx-auto w-72 text-3xl"
+          className="mx-auto w-72 text-3xl  bg-green-400 hover:bg-green-500"
           text="Submit"
           onClick={handleSubmit}
         />
@@ -332,4 +335,4 @@ const AttributePage = () => {
   );
 };
 
-export default AttributePage;
+export default ProductAttributePage;

@@ -2,9 +2,12 @@ import React from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
+/* ---------------------------------------------
+   InputField Component
+--------------------------------------------- */
 export const InputField = ({
   label,
-  type = "text", // Default to "text" type
+  type = "text",
   placeholder,
   name,
   value,
@@ -14,9 +17,12 @@ export const InputField = ({
   touched,
   rows,
   cols,
-  options = [], // Accept options as a prop
+  options = [],
   className = "",
 }) => {
+  /* ---------------------------------------------
+     Render Input Based on Type
+  --------------------------------------------- */
   const renderInput = () => {
     switch (type) {
       case "textarea":
@@ -57,7 +63,7 @@ export const InputField = ({
           </select>
         );
 
-      case "richtext": // Add case for React Quill
+      case "richtext":
         return (
           <ReactQuill
             theme="snow"
@@ -72,9 +78,7 @@ export const InputField = ({
                 ["clean"],
                 ["hr"],
               ],
-              clipboard: {
-                matchVisual: false,
-              },
+              clipboard: { matchVisual: false },
             }}
             className="text-sm sm:text-base"
           />
@@ -98,31 +102,40 @@ export const InputField = ({
 
   return (
     <div className={`input-field mx-1 w-full ${className}`}>
+      {/* Input Label */}
       <label
         className="block font-bold text-orange-500 mb-2 text-sm sm:text-base"
         htmlFor={name}
       >
         {label}
       </label>
+
+      {/* Rendered Input Field */}
       {renderInput()}
+
+      {/* Error Message */}
       {touched && error && (
         <div className="error text-red-500 text-sm sm:text-base">{error}</div>
       )}
     </div>
   );
 };
+
+/* ---------------------------------------------
+   Button Component
+--------------------------------------------- */
 export const Button = ({
   text,
   onClick,
-  type = "button", // Default type is "button"
-  icon = null, // Optional icon prop
-  className = "", // Allows additional classes for customization
+  type = "button",
+  icon = null,
+  className = "",
 }) => {
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`flex items-center justify-center font-bold text-xl sm:text-2xl text-slate-100 p-1 rounded-lg shadow-lg ${className}`}
+      className={`flex items-center justify-center font-bold text-base sm:text-lg flex-nowrap text-slate-100 p-1 rounded-lg shadow-lg ${className}`}
     >
       {icon && <span className="mx-1">{icon}</span>}
       {text}

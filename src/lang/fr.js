@@ -3,18 +3,20 @@ export const fr = {
   //       GENERAL
   // +++++++++++++++++++++++++++
   Dashboard: "Tableau de bord",
-  analytics: "Analytique",
+  Analytics: "Analyse",
   Search: "Recherche",
   Brand: "Marque",
   Attributes: "Attributs",
-  "Best Selling Product": "Meilleur produit",
-  Admin: "Admin",
+  "Best Selling Product": "Meilleur produit vendu",
+  Sales: "Ventes",
+  Overview: "Vue d'ensemble",
+  Products: "Produits",
+  Revenue: "Revenu",
   Limited: "Limité",
   Pending: "En attente",
   Cancelled: "Annulé",
   New: "Nouveau",
-  Sales: "Ventes",
-  Overview: "Aperçu",
+  "Total Stores": "Total des magasins",
 
   // +++++++++++++++++++++++++++
   //       PRODUCT CLASSIFICATION
@@ -29,7 +31,7 @@ export const fr = {
   "Add SubCategory": "Ajouter une sous-catégorie",
   "Enter subcategory name": "Entrez le nom de la sous-catégorie",
   "Enter Category Name": "Entrez le nom de la catégorie",
-  "Choose Category": "Choisir une catégorie",
+  "Choose Category": "Choisir la catégorie",
   "Add Variant Type": "Ajouter un type de variante",
   "Add Variant": "Ajouter une variante",
   "Add Brand": "Ajouter une marque",
@@ -37,12 +39,13 @@ export const fr = {
   // +++++++++++++++++++++++++++
   //       SUMMARY / STATS
   // +++++++++++++++++++++++++++
-  "Total Users": "Utilisateurs totaux",
-  "Total Orders": "Commandes totales",
-  "Total Products": "Produits totaux",
-  "Total Sales": "Ventes totales",
-  "Best Selling Product": "Meilleur produit",
+  "Total Users": "Total des utilisateurs",
+  "Total Orders": "Total des commandes",
+  "Total Products": "Total des produits",
+  "Total Sales": "Total des ventes",
+  "Best Selling Product": "Meilleur produit vendu",
   Home: "Accueil",
+  Sales: "Ventes",
 
   // +++++++++++++++++++++++++++
   //       TABLE HEADERS
@@ -53,13 +56,23 @@ export const fr = {
   "Sorted by price": "Trié par prix",
   "Sorted by order": "Trié par commande",
   "Sorted by sales": "Trié par ventes",
+  Name: "Nom",
+  Product: "Produit",
+  Date: "Date",
+  Price: "Prix",
+  "ID Order": "ID de commande",
+  "orders completed": "commandes terminées",
+  Completed: "Terminé",
+  "orders pending": "commandes en attente",
+  Canceled: "Annulé",
+  "orders canceled": "commandes annulées",
 
   // +++++++++++++++++++++++++++
   //       ANALYTICS
   // +++++++++++++++++++++++++++
   "Sales Analytics": "Analyse des ventes",
-  "On Sale": "En promotion",
-  "Store Overview": "Aperçu du magasin",
+  "On Sale": "En vente",
+  "Store Overview": "Vue d'ensemble du magasin",
 
   // +++++++++++++++++++++++++++
   //       PRODUCT ACTIONS
@@ -69,12 +82,8 @@ export const fr = {
   "Add Product": "Ajouter un produit",
   "Save Draft": "Enregistrer le brouillon",
   "Monthly Growth": "Croissance mensuelle",
-  "New Customers": "Nouveaux clients",
-  "Total Stores": "Magasins totaux",
-  "Total Revenue": "Revenu total",
-  "Discounts Given": "Remises accordées",
+  Discount: "Réduction",
   "Profit Margin": "Marge bénéficiaire",
-  Discount: "Remise",
 
   // +++++++++++++++++++++++++++
   //       PRODUCT DETAILS
@@ -90,22 +99,61 @@ export const fr = {
   "Variant Type": "Type de variante",
   "Product Classification": "Classification du produit",
   "Product Attributes": "Attributs du produit",
+  "User List": "Liste des utilisateurs",
 
   // +++++++++++++++++++++++++++
-  //      PLACEHOLDERS
+  //       USER MANAGEMENT
+  // +++++++++++++++++++++++++++
+  "Add User": "Ajouter un utilisateur",
+  "User Roles": "Rôles des utilisateurs",
+  Users: "Utilisateurs",
+  "Personal Information": "Informations personnelles",
+  Username: "Nom d'utilisateur",
+  "Enter Username": "Entrez le nom d'utilisateur",
+  Email: "E-mail",
+  "Enter Email": "Entrez l'e-mail",
+  "User Role": "Rôle de l'utilisateur",
+  Role: "Rôle",
+  "Select Role": "Sélectionner le rôle",
+  "Password Settings": "Paramètres du mot de passe",
+  Password: "Mot de passe",
+  "Enter Password": "Entrez le mot de passe",
+  "Confirm Password": "Confirmer le mot de passe",
+  "Save User": "Enregistrer l'utilisateur",
+  Cancel: "Annuler",
+  "User Management": "Gestion des utilisateurs",
+  Department: "Département",
+  "Enter Department": "Entrez le département",
+
+  // +++++++++++++++++++++++++++
+  //       ORDERS DETAILS
+  // +++++++++++++++++++++++++++
+  Orders: "Commandes",
+  "All Orders": "Toutes les commandes",
+  "Pending Orders": "Commandes en attente",
+  "Canceled Orders": "Commandes annulées",
+  "Completed Orders": "Commandes terminées",
+  "Total Revenue": "Total des revenus",
+  Profit: "Profit",
+  "Discounts Given": "Réductions accordées",
+  "Total Sales": "Total des ventes",
+  "Customer Insights": "Perspectives clients",
+  "Active Customers": "Clients actifs",
+  "New Customers": "Nouveaux clients",
+  "Returning Customers": "Clients récurrents",
+
+  // +++++++++++++++++++++++++++
+  //       PLACEHOLDERS
   // +++++++++++++++++++++++++++
   "Choose SubCategory": "Choisir une sous-catégorie",
   "Add Product Variant": "Ajouter une variante de produit",
-  "Choose Category": "Choisir une catégorie",
-  "Choose SubCategory": "Choisir une sous-catégorie",
   "Enter Product Title": "Entrez le titre du produit",
   "Clasify the Product": "Classer le produit",
-  "Choose Variant Type": "Choisir le type de variante",
   "Enter Brand Name": "Entrez le nom de la marque",
   "Enter product Stock": "Entrez le stock du produit",
   "Enter product Price": "Entrez le prix du produit",
   "Enter product description": "Entrez la description du produit",
-  "Add Product Attributes": "Ajouter des attributs au produit",
+  "Add Product Attributes": "Ajouter des attributs du produit",
   "Enter Display Name": "Entrez le nom d'affichage",
   "Enter Variant Name": "Entrez le nom de la variante",
   "Choose Product Brand": "Choisir la marque du produit",
@@ -113,19 +161,12 @@ export const fr = {
   // +++++++++++++++++++++++++++
   //       PRODUCTS
   // +++++++++++++++++++++++++++
-  Products: "Produits",
   "Product Management": "Gestion des produits",
   "Products List": "Liste des produits",
-  "Product Upload": "Téléchargement de produit",
+  "Product Upload": "Téléchargement du produit",
   Variant: "Variante",
-  "Draft Products": "Produits en brouillon",
-  "Out of Stock": "Hors stock",
+  "Draft Products": "Produits brouillon",
+  "Out of Stock": "En rupture de stock",
   "Limited Stock": "Stock limité",
   "Product Details": "Détails du produit",
-
-  // +++++++++++++++++++++++++++
-  //       ORDERS DETAILS
-  // +++++++++++++++++++++++++++
-  Orders: "Commandes",
-  "All Orders": "Toutes les commandes",
 };

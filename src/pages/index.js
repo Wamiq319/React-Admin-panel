@@ -2,8 +2,8 @@
 import StoreOverViewPage from "./DashBoard/StoreOverview";
 import SalesAnalyticsPage from "./DashBoard/SalesAnalytics";
 import ProductUploadPage from "./Product/AddProduct";
-import ClassificationPage from "./Product/Classification";
-import AttributePage from "./Product/Attribute";
+import ProductClassificationPage from "./Product/Classification";
+import ProductAttributePage from "./Product/Attribute";
 import Home from "../pages/Home";
 import AddUserPage from "./User/AddUser";
 import UserRolesPage from "./User/UserRole";
@@ -13,10 +13,10 @@ export {
   StoreOverViewPage,
   SalesAnalyticsPage,
   ProductUploadPage,
-  ClassificationPage,
+  ProductClassificationPage,
   UserRolesPage,
   AddUserPage,
   UserListPage,
-  AttributePage,
+  ProductAttributePage,
   Home,
 };

@@ -30,7 +30,7 @@ import {
 // Redux Actions & State Slices
 import { showNotification } from "../../redux/slices/notificationslice";
 
-const ClassificationPage = () => {
+const ProductClassificationPage = () => {
   // ===========================
   // Redux & State Slices
   // ===========================
@@ -369,7 +369,7 @@ const ClassificationPage = () => {
 
       <div className="mt-4 flex justify-start">
         <div className="w-80 sm:flex hidden">
-          <SearchInput className="w-72 " />
+          <SearchInput placeholder="Search in store" className="w-72 " />
         </div>
         <PageNav
           className="flex-1"
@@ -382,7 +382,7 @@ const ClassificationPage = () => {
             key={buttons[activeTab].key}
             text={buttons[activeTab].label}
             icon={<FaPlus />}
-            className="text-sm mx-1 w-1/3 bg-orange-500 hover:bg-orange-600"
+            className="text-sm mx-1  bg-green-500 hover:bg-green-600"
             onClick={() => handleOpenModal(activeTab)}
           />
         </div>
@@ -413,7 +413,7 @@ const ClassificationPage = () => {
       >
         {renderModalContent()}
         <Button
-          className="mx-auto w-72 text-3xl"
+          className="mx-auto w-72 text-3xl  bg-green-400 hover:bg-green-500"
           text="Submit"
           onClick={handleSubmit}
         />
@@ -422,4 +422,4 @@ const ClassificationPage = () => {
   );
 };
 
-export default ClassificationPage;
+export default ProductClassificationPage;

@@ -3,23 +3,25 @@ export const ar = {
   //       GENERAL
   // +++++++++++++++++++++++++++
   Dashboard: "لوحة القيادة",
-  analytics: "التحليلات",
+  Analytics: "التحليلات",
   Search: "بحث",
-  Brand: "ماركة",
+  Brand: "علامة تجارية",
   Attributes: "الخصائص",
-  "Best Selling Product": "أفضل منتج مبيعاً",
-  Admin: "مدير",
+  "Best Selling Product": "أفضل منتج مبيعًا",
+  Sales: "المبيعات",
+  Overview: "نظرة عامة",
+  Products: "المنتجات",
+  Revenue: "الإيرادات",
   Limited: "محدود",
   Pending: "قيد الانتظار",
   Cancelled: "ملغى",
   New: "جديد",
-  Sales: "المبيعات",
-  Overview: "نظرة عامة",
+  "Total Stores": "إجمالي المتاجر",
 
   // +++++++++++++++++++++++++++
   //       PRODUCT CLASSIFICATION
   // +++++++++++++++++++++++++++
-  Classification: "التصنيف",
+  Classification: "تصنيف",
   "Classify the Product": "تصنيف المنتج",
   Categories: "الفئات",
   Category: "الفئة",
@@ -29,10 +31,10 @@ export const ar = {
   "Add SubCategory": "إضافة فئة فرعية",
   "Enter subcategory name": "أدخل اسم الفئة الفرعية",
   "Enter Category Name": "أدخل اسم الفئة",
-  "Choose Category": "اختر الفئة",
-  "Add Variant Type": "إضافة نوع من المتغيرات",
-  "Add Variant": "إضافة متغير",
-  "Add Brand": "إضافة ماركة",
+  "Choose Category": "اختر فئة",
+  "Add Variant Type": "إضافة نوع البديل",
+  "Add Variant": "إضافة بديل",
+  "Add Brand": "إضافة علامة تجارية",
 
   // +++++++++++++++++++++++++++
   //       SUMMARY / STATS
@@ -41,18 +43,29 @@ export const ar = {
   "Total Orders": "إجمالي الطلبات",
   "Total Products": "إجمالي المنتجات",
   "Total Sales": "إجمالي المبيعات",
-  "Best Selling Product": "أفضل منتج مبيعاً",
+  "Best Selling Product": "أفضل منتج مبيعًا",
   Home: "الصفحة الرئيسية",
+  Sales: "المبيعات",
 
   // +++++++++++++++++++++++++++
   //       TABLE HEADERS
   // +++++++++++++++++++++++++++
-  Table: "جدول",
-  "Sorted by name": "مرتّب حسب الاسم",
-  "Sorted by category": "مرتّب حسب الفئة",
-  "Sorted by price": "مرتّب حسب السعر",
-  "Sorted by order": "مرتّب حسب الطلب",
-  "Sorted by sales": "مرتّب حسب المبيعات",
+  Table: "الجدول",
+  "Sorted by name": "مرتبة حسب الاسم",
+  "Sorted by category": "مرتبة حسب الفئة",
+  "Sorted by price": "مرتبة حسب السعر",
+  "Sorted by order": "مرتبة حسب الطلب",
+  "Sorted by sales": "مرتبة حسب المبيعات",
+  Name: "الاسم",
+  Product: "المنتج",
+  Date: "التاريخ",
+  Price: "السعر",
+  "ID Order": "رقم الطلب",
+  "orders completed": "الطلبات المكتملة",
+  Completed: "مكتمل",
+  "orders pending": "الطلبات المعلقة",
+  Canceled: "ملغى",
+  "orders canceled": "الطلبات الملغاة",
 
   // +++++++++++++++++++++++++++
   //       ANALYTICS
@@ -69,12 +82,8 @@ export const ar = {
   "Add Product": "إضافة منتج",
   "Save Draft": "حفظ المسودة",
   "Monthly Growth": "النمو الشهري",
-  "New Customers": "العملاء الجدد",
-  "Total Stores": "إجمالي المتاجر",
-  "Total Revenue": "إجمالي الإيرادات",
-  "Discounts Given": "الخصومات الممنوحة",
+  Discount: "الخصم",
   "Profit Margin": "هامش الربح",
-  Discount: "خصم",
 
   // +++++++++++++++++++++++++++
   //       PRODUCT DETAILS
@@ -84,48 +93,80 @@ export const ar = {
   Name: "الاسم",
   Price: "السعر",
   Stock: "المخزون",
-  "Variant Name": "اسم المتغير",
-  "Enter Variant type": "أدخل نوع المتغير",
-  "Display Name": "اسم العرض",
-  "Variant Type": "نوع المتغير",
+  "Variant Name": "اسم البديل",
+  "Enter Variant type": "أدخل نوع البديل",
+  "Display Name": "الاسم المعروض",
+  "Variant Type": "نوع البديل",
   "Product Classification": "تصنيف المنتج",
   "Product Attributes": "خصائص المنتج",
+  "User List": "قائمة المستخدمين",
 
   // +++++++++++++++++++++++++++
-  //      PLACEHOLDERS
+  //       USER MANAGEMENT
   // +++++++++++++++++++++++++++
-  "Choose SubCategory": "اختر الفئة الفرعية",
-  "Add Product Variant": "إضافة متغير المنتج",
-  "Choose Category": "اختر الفئة",
-  "Choose SubCategory": "اختر الفئة الفرعية",
-  "Enter Product Title": "أدخل عنوان المنتج",
-  "Clasify the Product": "تصنيف المنتج",
-  "Choose Variant Type": "اختر نوع المتغير",
-  "Enter Brand Name": "أدخل اسم الماركة",
-  "Enter product Stock": "أدخل مخزون المنتج",
-  "Enter product Price": "أدخل سعر المنتج",
-  "Enter product description": "أدخل وصف المنتج",
-  "Add Product Attributes": "إضافة خصائص المنتج",
-  "Enter Display Name": "أدخل اسم العرض",
-  "Enter Variant Name": "أدخل اسم المتغير",
-  "Choose Product Brand": "اختر ماركة المنتج",
-
-  // +++++++++++++++++++++++++++
-  //       PRODUCTS
-  // +++++++++++++++++++++++++++
-  Products: "المنتجات",
-  "Product Management": "إدارة المنتجات",
-  "Products List": "قائمة المنتجات",
-  "Product Upload": "تحميل المنتج",
-  Variant: "متغير",
-  "Draft Products": "المنتجات قيد المسودة",
-  "Out of Stock": "نفد من المخزون",
-  "Limited Stock": "مخزون محدود",
-  "Product Details": "تفاصيل المنتج",
+  "Add User": "إضافة مستخدم",
+  "User Roles": "أدوار المستخدم",
+  Users: "المستخدمين",
+  "Personal Information": "المعلومات الشخصية",
+  Username: "اسم المستخدم",
+  "Enter Username": "أدخل اسم المستخدم",
+  Email: "البريد الإلكتروني",
+  "Enter Email": "أدخل البريد الإلكتروني",
+  "User Role": "دور المستخدم",
+  Role: "الدور",
+  "Select Role": "اختيار الدور",
+  "Password Settings": "إعدادات كلمة المرور",
+  Password: "كلمة المرور",
+  "Enter Password": "أدخل كلمة المرور",
+  "Confirm Password": "تأكيد كلمة المرور",
+  "Save User": "حفظ المستخدم",
+  Cancel: "إلغاء",
+  "User Management": "إدارة المستخدمين",
+  Department: "القسم",
+  "Enter Department": "أدخل القسم",
 
   // +++++++++++++++++++++++++++
   //       ORDERS DETAILS
   // +++++++++++++++++++++++++++
   Orders: "الطلبات",
   "All Orders": "جميع الطلبات",
+  "Pending Orders": "الطلبات المعلقة",
+  "Canceled Orders": "الطلبات الملغاة",
+  "Completed Orders": "الطلبات المكتملة",
+  "Total Revenue": "إجمالي الإيرادات",
+  Profit: "الربح",
+  "Discounts Given": "الخصومات المقدمة",
+  "Total Sales": "إجمالي المبيعات",
+  "Customer Insights": "رؤى العملاء",
+  "Active Customers": "العملاء النشطين",
+  "New Customers": "العملاء الجدد",
+  "Returning Customers": "العملاء العائدين",
+
+  // +++++++++++++++++++++++++++
+  //       PLACEHOLDERS
+  // +++++++++++++++++++++++++++
+  "Choose SubCategory": "اختر الفئة الفرعية",
+  "Add Product Variant": "إضافة بديل للمنتج",
+  "Enter Product Title": "أدخل عنوان المنتج",
+  "Clasify the Product": "تصنيف المنتج",
+  "Enter Brand Name": "أدخل اسم العلامة التجارية",
+  "Enter product Stock": "أدخل مخزون المنتج",
+  "Enter product Price": "أدخل سعر المنتج",
+  "Enter product description": "أدخل وصف المنتج",
+  "Add Product Attributes": "إضافة خصائص المنتج",
+  "Enter Display Name": "أدخل الاسم المعروض",
+  "Enter Variant Name": "أدخل اسم البديل",
+  "Choose Product Brand": "اختر علامة المنتج",
+
+  // +++++++++++++++++++++++++++
+  //       PRODUCTS
+  // +++++++++++++++++++++++++++
+  "Product Management": "إدارة المنتجات",
+  "Products List": "قائمة المنتجات",
+  "Product Upload": "رفع المنتج",
+  Variant: "البديل",
+  "Draft Products": "المنتجات المسودة",
+  "Out of Stock": "نفد من المخزون",
+  "Limited Stock": "مخزون محدود",
+  "Product Details": "تفاصيل المنتج",
 };

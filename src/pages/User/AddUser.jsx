@@ -34,8 +34,8 @@ const AddUserPage = () => {
         title={words["Add User"]}
         breadcrumbs={[
           { label: words["Admin"], link: "/home/dashboard" },
+          { label: words["Users"], link: "/home/user-list" },
           { label: words["Add"] },
-          { label: words["Users"], link: "/home/users" },
         ]}
       />
 

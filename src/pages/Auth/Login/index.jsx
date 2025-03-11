@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { setAuth } from "../../../redux/slices/authSLice";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -25,24 +27,29 @@ const Login = () => {
       setError("Please fill out both fields.");
       return;
     }
-    // if (
-    //   formData.email == "test@gmail.com" &&
-    //   formData.password == "testAdmin"
-    // ) {
-    //   setError("Invalid Email or Password");
-    //   return;
-    // }
-    dispatch(setAuth(true));
+
+    // Simulated login validation
+    if (
+      formData.email !== "test@gmail.com" ||
+      formData.password !== "testAdmin"
+    ) {
+      setError("Invalid Email or Password");
+      return;
+    }
+
     setIsLoading(true);
+    dispatch(setAuth(true)); // Redux state update karega
+
     setTimeout(() => {
       setError("");
       setIsLoading(false);
-    }, 2000);
+      navigate("/home"); // Redirect to home page
+    }, 500);
   };
 
   return (
-    <div className="flex justify-center items-center  min-h-screen ">
-      <div className="bg-white w-full p-8 rounded-xl shadow-lg max-w-md relative m-4 ">
+    <div className="flex justify-center items-center min-h-screen">
+      <div className="bg-white w-full p-8 rounded-xl shadow-lg max-w-md relative m-4">
         <h2 className="text-2xl font-semibold text-center text-orange-700 mb-4">
           Welcome Back!
         </h2>

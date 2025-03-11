@@ -1,3 +1,4 @@
+// React & Redux
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -47,7 +48,7 @@ const ProductUploadPage = () => {
   const [variants, setVariants] = useState([]);
 
   // ===========================
-  // Fetch Data on Mount
+  // Effects
   // ===========================
   useEffect(() => {
     const fetchData = async () => {
@@ -67,18 +68,17 @@ const ProductUploadPage = () => {
   useEffect(() => {
     const subCategories = getRelatedSubCategories(formData.category);
     setSubCategoryOptions(subCategories);
-  }, [formData, formData.category]);
+  }, [formData.category]);
 
   useEffect(() => {
-    const Brands = getRelatedBrands(formData.subcategory);
-    setBrandOptions(Brands);
-  }, [formData, formData.subcategory]);
+    const brands = getRelatedBrands(formData.subcategory);
+    setBrandOptions(brands);
+  }, [formData.subcategory]);
 
   useEffect(() => {
     const variants = getRelatedVariants(formData.variantType);
     setVariants(variants);
-    console.log(variants);
-  }, [formData, formData.variantType]);
+  }, [formData.variantType]);
 
   // ===========================
   // Helper Functions
@@ -97,8 +97,13 @@ const ProductUploadPage = () => {
     }
   };
 
-  const handleAddVariantType = (e) => {};
-  const handleremoveVariantType = (e) => {};
+  const handleAddVariantType = () => {
+    // Logic to add variant type
+  };
+
+  const handleRemoveVariantType = () => {
+    // Logic to remove variant type
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -109,8 +114,11 @@ const ProductUploadPage = () => {
     // Add your API call here
   };
 
+  // ===========================
+  // JSX Render
+  // ===========================
   return (
-    <div className="product-page-wrapper bg-none ">
+    <div className="product-page-wrapper bg-none">
       {/* Page Header */}
       <PageHeader
         title={words["Product Upload"]}
@@ -134,6 +142,7 @@ const ProductUploadPage = () => {
               value={formData.productTitle}
               onChange={handleInputChange}
             />
+
             {/* Description */}
             <InputField
               label={words["Product Details"]}
@@ -143,7 +152,7 @@ const ProductUploadPage = () => {
             />
 
             {/* Price and Stock */}
-            <div className="flex  flex-row gap-4">
+            <div className="flex flex-row gap-4">
               <InputField
                 label={words["Price"]}
                 type="number"
@@ -189,15 +198,16 @@ const ProductUploadPage = () => {
                 value={formData.subcategory}
                 onChange={handleInputChange}
               />
+
               <InputField
                 label={words["Brand"]}
                 type="select"
                 name="productBrand"
+                placeholder={words["Choose Product Brand"]}
                 options={brandOptions.map((option) => ({
                   value: option.brandId,
                   label: option.brandName,
                 }))}
-                placeholder={words["Choose Product Brand"]}
                 value={formData.productBrand}
                 onChange={handleInputChange}
               />
@@ -206,7 +216,7 @@ const ProductUploadPage = () => {
 
           {/* Right Section */}
           <div className="bg-white p-4 rounded-lg shadow-lg w-full lg:w-[39%]">
-            {/* Brand and Variant */}
+            {/* Variant Section */}
             <div className="flex flex-col sm:flex-row gap-4">
               <InputField
                 label={words["Variant"]}
@@ -224,10 +234,12 @@ const ProductUploadPage = () => {
               <Button
                 text="Add"
                 icon={<FaPlus />}
-                className="text-sm h-[43px] w-full sm:w-40 mt-auto bg-orange-500 hover:bg-orange-600"
+                className="text-sm h-[43px] w-full sm:w-40 mt-auto bg-green-400 hover:bg-green-500"
                 onClick={handleAddVariantType}
               />
             </div>
+
+            {/* Variant Tags */}
             <div className="flex flex-wrap m-1">
               {variants instanceof Set &&
                 [...variants].map((variant, index) => (
