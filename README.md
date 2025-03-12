@@ -6,7 +6,7 @@ This project is a **fully responsive React Admin Panel** designed for managing e
 
 You can view the live demo of the app at the following link:
 
-**[Demo - Home Dashboard](https://wamiq319.github.io/React-Admin-panel/)**
+**[Demo - Home Dashboard](https://react-admin-panel-git-main-wamiqs-projects.vercel.app)**
 
 
 ## Features
