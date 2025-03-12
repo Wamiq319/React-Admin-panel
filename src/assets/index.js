@@ -9,7 +9,7 @@ import GamingLapTop from "./ProductImages/GamingLapTop.png";
 import HeadSet from "./ProductImages/HeadSet.png";
 import IphoneX from "./ProductImages/IphoneX.png";
 import Watch from "./ProductImages/Watch.png";
-import LapTop from "./ProductImages/LapTop.png";
+import Laptop from "./ProductImages/Laptop.png";
 
 export {
   usflag,
@@ -21,5 +21,5 @@ export {
   HeadSet,
   IphoneX,
   Watch,
-  LapTop,
+  Laptop,
 };

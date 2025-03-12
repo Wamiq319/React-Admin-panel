@@ -21,7 +21,7 @@ import {
   HeadSet,
   IphoneX,
   Watch,
-  LapTop,
+  Laptop,
 } from "../../assets";
 
 const ProductListPage = () => {
@@ -100,7 +100,7 @@ const ProductListPage = () => {
     {
       id: 5,
       name: "LapTop",
-      image: LapTop,
+      image: Laptop,
       price: "$1299.99",
       category: "Computers",
       rating: 3.5,
