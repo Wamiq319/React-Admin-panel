@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { setAuth } from "../../../redux/slices/authSLice";
+import { setAuth } from "../../../redux/slices/authSlice";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
